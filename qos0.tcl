@@ -54,100 +54,99 @@ $ns duplex-link $Cli5 $E2 5Mb 5ms DropTail
 $ns duplex-link $Cli6 $E2 5Mb 5ms DropTail
 
 # Ligacoes do backbone E1 - C0 - E2  (Para Best Effort)
-$ns duplex-link $E1 $C0 10Mb 10ms DropTail
-$ns duplex-link $E2 $C0 10Mb 10ms DropTail
+$ns duplex-link $E1 $C0 5Mb 10ms DropTail
+$ns duplex-link $E2 $C0 5Mb 10ms DropTail
 
 # Orientacoes de posicionamento dos links para o NAM...
 # 0 -> 3
 $ns duplex-link-op $Cli1 $E1 orient down-right   
 
-$ns duplex-link-op $Cli2 $E1 orient right        
 # 1 -> 3
+$ns duplex-link-op $Cli2 $E1 orient right        
 
-$ns duplex-link-op $Cli3 $E1 orient up-right     
 # 2 -> 3
+$ns duplex-link-op $Cli3 $E1 orient up-right     
 
-$ns duplex-link-op $Cli4 $E2 orient down-left    
 # 6 -> 5
+$ns duplex-link-op $Cli4 $E2 orient down-left    
 
-$ns duplex-link-op $Cli5 $E2 orient left         
 # 7 -> 5
+$ns duplex-link-op $Cli5 $E2 orient left         
 
-$ns duplex-link-op $Cli6 $E2 orient up-left      
 # 8 -> 5
+$ns duplex-link-op $Cli6 $E2 orient up-left      
 
-$ns duplex-link-op $E1 $C0 orient right          
 # 3 -> 4  
+$ns duplex-link-op $E1 $C0 orient right          
 
-$ns duplex-link-op $C0 $E2 orient right          
 # 5 -> 4
+$ns duplex-link-op $C0 $E2 orient right          
 
 # Procedimentos auxiliares: criacao de fluxos CBR...
 proc cria_fluxo_CBR { origem destino tamanho_pacote debito } {
-	global ns fid
+  global ns fid
 
-	set udp [new Agent/UDP]
-	$ns attach-agent $origem $udp
-	set cbr [new Application/Traffic/CBR]
-	$cbr attach-agent $udp
-	$cbr set packet_size_ $tamanho_pacote  ;# bytes 
-	$udp set packetSize_ $tamanho_pacote   ;# bytes
-	$cbr set rate_ $debito                 ;# bits por segundo (bps)
-	$udp set fid_ $fid
-	incr fid
-	set null [new Agent/Null]
-	$ns attach-agent $destino $null
-	$ns connect $udp $null
-	return $cbr
+  set udp [new Agent/UDP]
+  $ns attach-agent $origem $udp
+  set cbr [new Application/Traffic/CBR]
+  $cbr attach-agent $udp
+  $cbr set packet_size_ $tamanho_pacote  ;# bytes 
+  $udp set packetSize_ $tamanho_pacote   ;# bytes
+  $cbr set rate_ $debito                 ;# bits por segundo (bps)
+  $udp set fid_ $fid
+  incr fid
+  set null [new Agent/Null]
+  $ns attach-agent $destino $null
+  $ns connect $udp $null
+  return $cbr
 }
 
 # Procedimentos auxiliares: criacao de fluxos FTP...
 proc cria_fluxo_FTP { origem destino tamanho_pacote } {
-	global ns fid
+  global ns fid
 
-	set tcp [new Agent/TCP]
-	$ns attach-agent $origem $tcp
-	set ftp [new Application/FTP]
-	$ftp attach-agent $tcp
-	$tcp set packetSize_ $tamanho_pacote
-	set sink [new Agent/TCPSink]
-	$ns attach-agent $destino $sink
-	$ns connect $tcp $sink
+  set tcp [new Agent/TCP]
+  $ns attach-agent $origem $tcp
+  set ftp [new Application/FTP]
+  $ftp attach-agent $tcp
+  $tcp set packetSize_ $tamanho_pacote
+  set sink [new Agent/TCPSink]
+  $ns attach-agent $destino $sink
+  $ns connect $tcp $sink
 
-	return $ftp
+  return $ftp
 }
-    
+
 # Procedimentos auxiliares: criacao de fluxos EXP...
 proc cria_fluxo_EXP { origem destino tamanho_pacote debito burst_time } {
-	global ns fid
+  global ns fid
 
-	set udp [new Agent/UDP]
-	$ns attach-agent $origem $udp
-	set expoo [new Application/Traffic/Exponential]
-	$expoo attach-agent $udp
-	$expoo set packetSize_  $tamanho_pacote  
-	$expoo set burst_time_  $burst_time
-	$expoo set idle_time_   [format %.1f [expr $burst_time*(1/0.4)]]
-	$expoo set rate_ $debito
-	$expoo set id_   $fid
-	$udp set fid_    $fid
-	incr fid
-	set null [new Agent/Null]
-	$ns attach-agent $destino $null
-	$ns connect $udp $null
+  set udp [new Agent/UDP]
+  $ns attach-agent $origem $udp
+  set expoo [new Application/Traffic/Exponential]
+  $expoo attach-agent $udp
+  $expoo set packetSize_  $tamanho_pacote  
+  $expoo set burst_time_  $burst_time
+  $expoo set idle_time_   [format %.1f [expr $burst_time*(1/0.4)]]
+  $expoo set rate_ $debito
+  $expoo set id_   $fid
+  $udp set fid_    $fid
+  incr fid
+  set null [new Agent/Null]
+  $ns attach-agent $destino $null
+  $ns connect $udp $null
 
-	return $expoo
+  return $expoo
 }
 
 proc finish {} {
-    global ns trace_file nam_trace_file
+  global ns trace_file nam_trace_file
 
-    $ns trace-annotate "Fim da Simulacao"
-    close $trace_file
-    close $nam_trace_file
-    exit 0
+  $ns trace-annotate "Fim da Simulacao"
+  close $trace_file
+  close $nam_trace_file
+  exit 0
 }
-
 
 # Efectivar os fluxos da simulacao, incovando os procedimentos anteriores
 # invocacao: cria_fluxo $No_Origem $No_Destino $tamanho_pacote $debito_bps

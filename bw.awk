@@ -12,10 +12,10 @@ BEGIN {
     bytes[$9"_"$10] += $6   ;# tamanho do pacote em bytes...
   }
   if ( $2 >= proximo_dump ) {
-    print $2, total_bytes*8.0/intervalo > outf".gr"
+    print $2, " , " ,  total_bytes*8.0/intervalo > outf".gr"
     total_bytes = 0
     for ( v in bytes ) {
-      print $2, bytes[v]*8.0/intervalo > outf"_"v".gr"
+      print $2, " , ", bytes[v]*8.0/intervalo > outf"_"v".gr"
       bytes[v] = 0
     }
     proximo_dump += intervalo
@@ -24,8 +24,8 @@ BEGIN {
 }
 END {
   last_intervalo = intervalo - proximo_dump + last
-  print last, total_bytes*8.0/last_intervalo > outf".gr"
+  print last," , ", total_bytes*8.0/last_intervalo > outf".gr"
   for ( v in bytes ) {
-    print last, bytes[v]*8.0/last_intervalo > outf"_"v".gr"
+    print last, " , ", bytes[v]*8.0/last_intervalo > outf"_"v".gr"
   }
 }
