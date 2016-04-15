@@ -152,8 +152,8 @@ proc finish {} {
 # invocacao: cria_fluxo $No_Origem $No_Destino $tamanho_pacote $debito_bps
 # comentar os que nao forem precisos...
 
-set cbr(Cli1_Cli6)  [cria_fluxo_CBR $Cli1 $Cli6 1000 5000000]
-set cbr(Cli2_Cli5)  [cria_fluxo_CBR $Cli2 $Cli5 1000 3000000]
+set cbr(Cli1_Cli6)  [cria_fluxo_CBR $Cli1 $Cli6 1000 3000000]
+set cbr(Cli2_Cli5)  [cria_fluxo_CBR $Cli2 $Cli5 1000 5000000]
 set cbr(Cli3_Cli4)  [cria_fluxo_CBR $Cli3 $Cli4 1000 3000000]
 set cbr(Cli4_Cli3)  [cria_fluxo_CBR $Cli4 $Cli3 1000 3000000]
 set cbr(Cli5_Cli2)  [cria_fluxo_CBR $Cli5 $Cli2 1000 3000000]
