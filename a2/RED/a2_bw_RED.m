@@ -1,62 +1,70 @@
 FigHandle = figure;
 set(FigHandle, 'Position', [0, 0, 640, 480]);
 
+
+
+%% tcl link colors
+%% $ns color 1 red
+%% $ns color 2 green
+%% $ns color 3 blue
+%% $ns color 4 yellow
+%% $ns color 5 magenta
+%% $ns color 6 brown
+
+red = [ 255 0 0 ];
+green = [ 0 255 0 ];
+blue = [ 0 0 255 ];
+yellow = [ 255 255 0 ];
+magenta = [ 255 0 255 ];
+brown = [ 165 42 42 ];
+
+color0 = red/255;
+color1 = green/255;
+color2 = blue/255;
+color6 = yellow/255;
+color7 = magenta/255;
+color8 = brown/255;
+
+
 %%%% FILES %%%%
 full = csvread('bw_RED.gr');
 link_0_8 = csvread('bw_0.0_8.0_RED.gr');
 link_1_7 = csvread('bw_1.0_7.0_RED.gr');
 link_2_6 = csvread('bw_2.0_6.0_RED.gr');
-link_6_2 = csvread('bw_6.1_2.1_RED.gr');
-link_7_1 = csvread('bw_7.1_1.1_RED.gr');
-link_8_0 = csvread('bw_8.1_0.1_RED.gr');
 
 %%%% TIME %%%%
 time_full = full ( :, 1); 
 time_0_8 = link_0_8 ( :, 1); 
 time_1_7 = link_1_7 ( :, 1); 
 time_2_6 = link_2_6 ( :, 1); 
-time_6_2 = link_6_2 ( :, 1); 
-time_7_1 = link_7_1 ( :, 1); 
-time_8_3 = link_8_0 ( :, 1); 
 
 %%%% LOSS %%%%
 bw_full = full ( :, 2); 
 bw_0_8 = link_0_8 ( :, 2);
 bw_1_7 = link_1_7 ( :, 2); 
 bw_2_6 = link_2_6 ( :, 2);
-bw_6_2 = link_6_2 ( :, 2);
-bw_7_1 = link_7_1 ( :, 2); 
-bw_8_0 = link_8_0 ( :, 2);
 
 bw_full = bw_full / ( 1 * 10^6) ;
 bw_0_8 = bw_0_8 / ( 1 * 10^6) ;
 bw_1_7 = bw_1_7 / ( 1 * 10^6) ;
 bw_2_6 = bw_2_6 / ( 1 * 10^6) ;
-bw_6_2 = bw_6_2 / ( 1 * 10^6) ;
-bw_7_1 = bw_7_1 / ( 1 * 10^6) ;
-bw_8_0 = bw_8_0 / ( 1 * 10^6) ;
+
+colorf = [0 0 0];
+
+plot(time_full,bw_full,'-','Color', colorf,'LineWidth',2);
 
 
-bg = [1 1 1; 0 0 0];
-colors = distinguishable_colors(5,bg);
-
-plot(time_full,bw_full,'ro-','Color', colors(1,:));
 hold on;
-plot(time_0_8,bw_0_8,'rx-','Color', colors(5,:));
+plot(time_0_8,bw_0_8,'s-','Color', color0);
 hold on;
-plot(time_1_7,bw_1_7,'r+-','Color', colors(2,:));
+plot(time_1_7,bw_1_7,'d-','Color', color1);
 hold on;
-plot(time_2_6,bw_2_6,'r*-','Color', colors(3,:));
+plot(time_2_6,bw_2_6,'p-','Color', color2);
 hold on;
 
+ylim([0 max(bw_full*1.25)]);
 
 l = legend('full bw RED','flow 0 -> 8 bw RED' , 'flow 1 -> 7 bw RED' , 'flow 2 -> 6 bw RED' );
-
-
-  
-
-
-
 
 set(l,'FontSize',12);
 ylabel('Bandwidth in Mbps');

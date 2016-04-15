@@ -1,3 +1,27 @@
+
+
+%% tcl link colors
+%% $ns color 1 red
+%% $ns color 2 green
+%% $ns color 3 blue
+%% $ns color 4 yellow
+%% $ns color 5 magenta
+%% $ns color 6 brown
+
+red = [ 255 0 0 ];
+green = [ 0 255 0 ];
+blue = [ 0 0 255 ];
+yellow = [ 255 255 0 ];
+magenta = [ 255 0 255 ];
+brown = [ 165 42 42 ];
+
+color0 = red/255;
+color1 = green/255;
+color2 = blue/255;
+color6 = yellow/255;
+color7 = magenta/255;
+color8 = brown/255;
+
 FigHandle = figure;
 set(FigHandle, 'Position', [0, 0, 640, 480]);
 
@@ -25,22 +49,22 @@ loss_2_6 = link_2_6 ( :, 2);
 loss_7_1 = link_7_1 ( :, 2); 
 loss_8_0 = link_8_0 ( :, 2);
 
-bg = [1 1 1; 0 0 0];
-colors = distinguishable_colors(6,bg);
+colorf = [0 0 0];
 
-plot(time_full,loss_full,'ro-','Color', colors(1,:));
+plot(time_full,loss_full,'-','Color', colorf,'LineWidth',2);
 hold on;
-plot(time_0_8,loss_0_8,'r+-','Color', colors(2,:));
+plot(time_0_8,loss_0_8,'s-','Color', color0);
 hold on;
-plot(time_1_7,loss_1_7,'r+-','Color', colors(3,:));
+plot(time_1_7,loss_1_7,'d-','Color', color1);
 hold on;
-plot(time_2_6,loss_2_6,'r*-','Color', colors(4,:));
+plot(time_2_6,loss_2_6,'p-','Color', color2);
 hold on;
-plot(time_7_1,loss_7_1,'rx-','Color', colors(5,:));
+plot(time_7_1,loss_7_1,'h-','Color', color7);
 hold on;
-plot(time_8_0,loss_8_0,'rx-','Color', colors(6,:));
+plot(time_8_0,loss_8_0,'o-','Color', color8);
 hold on;
 grid on;
+ylim([0 max(loss_full*1.40)]);
 
 
 
