@@ -154,8 +154,16 @@ proc finish {} {
 
 set cbr(Cli1_Cli6)  [cria_fluxo_CBR $Cli1 $Cli6 1000 4000000]
 set ftp(Cli2_Cli5)  [cria_fluxo_FTP $Cli2 $Cli5 1000]
-set exp(Cli3_Cli4)  [cria_fluxo_EXP $Cli3 $Cli4 1000 64000 0.5]
-set exp(Cli4_Cli3)  [cria_fluxo_EXP $Cli4 $Cli3 1000 64000 0.5]
+# a voice connection over UDP from client 3 to client 4, and vice-versa.
+# we considered 30 clients simultaneously using both fluxes 
+
+set a 0
+while {$a<30} {
+ set exp(Cli3_Cli4_$a)  [cria_fluxo_EXP $Cli3 $Cli4 1000 64000 0.5]
+ set exp(Cli4_Cli3_$a)  [cria_fluxo_EXP $Cli4 $Cli3 1000 64000 0.5]
+ incr a
+}
+
 set ftp(Cli4_Cli2)  [cria_fluxo_FTP $Cli4 $Cli2 1000]
 set cbr(Cli6_Cli1)  [cria_fluxo_CBR $Cli6 $Cli1 1000 4000000]
 
@@ -164,14 +172,24 @@ set cbr(Cli6_Cli1)  [cria_fluxo_CBR $Cli6 $Cli1 1000 4000000]
 
 $ns at 0.0 "$cbr(Cli1_Cli6) start"
 $ns at 0.0 "$ftp(Cli2_Cli5) start"
-$ns at 0.0 "$exp(Cli3_Cli4) start"
-$ns at 0.0 "$exp(Cli4_Cli3) start"
 $ns at 0.0 "$ftp(Cli4_Cli2) start"
 $ns at 0.0 "$cbr(Cli6_Cli1) start"
+
+#######
+# STOP
+#######
+set a 0
+while {$a<30} {
+  $ns at 0.0 "$exp(Cli3_Cli4_$a) start"
+  $ns at 0.0 "$exp(Cli4_Cli3_$a) start"
+
+  $ns at $tempo_simulacao "$exp(Cli3_Cli4_$a) stop"
+  $ns at $tempo_simulacao "$exp(Cli4_Cli3_$a) stop"
+ incr a
+}
+
 $ns at $tempo_simulacao "$cbr(Cli1_Cli6) stop"
 $ns at $tempo_simulacao "$ftp(Cli2_Cli5) stop"
-$ns at $tempo_simulacao "$exp(Cli3_Cli4) stop"
-$ns at $tempo_simulacao "$exp(Cli4_Cli3) stop"
 $ns at $tempo_simulacao "$ftp(Cli4_Cli2) stop"
 $ns at $tempo_simulacao "$cbr(Cli6_Cli1) stop"
 
