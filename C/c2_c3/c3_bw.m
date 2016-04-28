@@ -80,7 +80,6 @@ ylim([0 max(bw_full*1.4)]);
 l = legend('full bw','flow 0 -> 8 bw ( 3Mb CBR App ) :: Client 1 to Client 6' , 'flow 1 -> 7 bw ( 3Mb CBR App ) :: Client 2 to Client 5' , 'flow 2 -> 6 bw ( 3Mb CBR App ) :: Client 3 to Client 4' );
 
 
-
 set(l,'FontSize',12);
 ylabel('Bandwidth in Mbps');
 

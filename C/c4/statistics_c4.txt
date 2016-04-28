@@ -1,0 +1,78 @@
+Policy Table(1):
+  Flow (-1 to -1): Null policer, initial code point 10
+
+                   Policer Table:
+                   Null policer code point 10 is policed to code point 10.
+
+                   Policy Table(1):
+                     Flow (-1 to -1): Null policer, initial code point 10
+
+                                      Policer Table:
+                                      Null policer code point 10 is policed to code point 10.
+
+
+                                      --------------------------------------------
+
+                                      Statistics for the queue from E1 to C0
+
+                                      Packets Statistics
+                                      =======================================
+                                      CP  TotPkts   TxPkts   ldrops   edrops
+                                      --  -------   ------   ------   ------
+                                      All     5619     3161     2389       69
+                                      10     5619     3161     2389       69
+
+                                      Statistics for the queue from C0 to E2
+
+                                      Packets Statistics
+                                      =======================================
+                                      CP  TotPkts   TxPkts   ldrops   edrops
+                                      --  -------   ------   ------   ------
+                                      All     3114     3114        0        0
+                                      10     3114     3114        0        0
+
+                                      --------------------------------------------
+
+                                      --------------------------------------------
+
+                                      Statistics for the queue from E1 to C0
+
+                                      Packets Statistics
+                                      =======================================
+                                      CP  TotPkts   TxPkts   ldrops   edrops
+                                      --  -------   ------   ------   ------
+                                      All    11244     6288     4819      137
+                                      10    11244     6288     4819      137
+
+                                      Statistics for the queue from C0 to E2
+
+                                      Packets Statistics
+                                      =======================================
+                                      CP  TotPkts   TxPkts   ldrops   edrops
+                                      --  -------   ------   ------   ------
+                                      All     6239     6239        0        0
+                                      10     6239     6239        0        0
+
+                                      --------------------------------------------
+
+                                      --------------------------------------------
+
+                                      Statistics for the queue from E1 to C0
+
+                                      Packets Statistics
+                                      =======================================
+                                      CP  TotPkts   TxPkts   ldrops   edrops
+                                      --  -------   ------   ------   ------
+                                      All    16869     9411     7247      211
+                                      10    16869     9411     7247      211
+
+                                      Statistics for the queue from C0 to E2
+
+                                      Packets Statistics
+                                      =======================================
+                                      CP  TotPkts   TxPkts   ldrops   edrops
+                                      --  -------   ------   ------   ------
+                                      All     9364     9364        0        0
+                                      10     9364     9364        0        0
+
+                                      --------------------------------------------
