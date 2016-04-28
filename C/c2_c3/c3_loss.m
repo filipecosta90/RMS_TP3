@@ -77,7 +77,7 @@ hold on;
 plot(time_8_0,loss_8_0,'o-','Color', color8);
 hold on;
 grid on;
-ylim([0 max(loss_full*1.40)]);
+ylim([0 max(loss_full*1.50)]);
 
 
 l = legend('full loss','flow 0 -> 8 #packet loss ( 3Mb CBR App ) :: Client 1 to Client 6',  'flow 1 -> 7 #packet loss ( 3Mb CBR App ) :: Client 2 to Client 5' , 'flow 2 -> 6 #packet loss ( 3Mb CBR App ) :: Client 3 to Client 4', 'flow 6 -> 2 #packet loss ( 3Mb CBR App ) :: Client 4 to Client 3',  'flow 7 -> 1 #packet loss ( 3Mb CBR App ) :: Client 5 to Client 2', 'flow 8 -> 0 #packet loss ( 3Mb CBR App ) :: Client 6 to Client 1');
@@ -87,7 +87,7 @@ set(l,'FontSize',12);
 ylabel('# of packets lost');
 
 xlabel('Time in sec.');
-t = title({'Packet loss evolution by flow and aggregated','on a simple FIFO queuing system'},'interpreter','latex')
+t = title({'\textbf{Packet loss evolution by flow and aggregated on the network,}','\textbf{With edge/core routers implementing Differentiated Services.}', 'DiffServ. properties:  Round Robin scheduling and RIO-C Active Queue Management'},'interpreter','latex');
 
 set(t,'FontSize',30);
 set(gca,'fontsize',12);
