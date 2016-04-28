@@ -89,6 +89,9 @@ set cbs0    5000     ;# em bytes
 ###
 ###########################################
 
+# Because neither the scheduling or MRED mode type are set
+# they default to Round Robin scheduling and RIO-C Active Queue Management.
+
 $q(E1C0) meanPktSize $packetSize
 # Variable numQueues_ in class dsREDQueue specifies the number of physical queues.
 $q(E1C0) set numQueues_ 1
@@ -100,6 +103,7 @@ $q(E1C0) setNumPrec 2
 #   and 
 #   --- one between every any initial and end station -> Dumb(does nothing).
 # The CIR and CBS values used in the policies are the ones set at the beginning of the script.
+# 
 $q(E1C0) addPolicyEntry [$Cli1 id] [$Cli6 id] TokenBucket 10 $cir0 $cbs0
 $q(E1C0) addPolicyEntry -1 -1 Dumb 11       ;# todo o restante trafego...
 $q(E1C0) addPolicerEntry TokenBucket 10 11
@@ -126,6 +130,9 @@ $q(E1C0) configQ 0 1 10 20 0.10
 ###
 ###
 ###########################################
+
+# Because neither the scheduling or MRED mode type are set
+# they default to Round Robin scheduling and RIO-C Active Queue Management.
 
 # The mean packet size (in bytes) is also needed for the average RED queue length calculation.
 $q(E2C0) meanPktSize $packetSize
@@ -169,6 +176,9 @@ $q(E2C0) configQ 0 1 10 20 0.10
 ###
 ###########################################
 
+# Because neither the scheduling or MRED mode type are set
+# they default to Round Robin scheduling and RIO-C Active Queue Management.
+
 $q(C0E1) meanPktSize $packetSize
 # Variable numQueues_ in class dsREDQueue specifies the number of physical queues.
 $q(C0E1) set numQueues_ 1
@@ -205,6 +215,8 @@ $q(C0E2) addPHBEntry 11 0 1
 # >>> starts discarting earlier queue 1
 $q(C0E2) configQ 0 0 20 40 0.02
 $q(C0E2) configQ 0 1 10 20 0.10
+
+# - # - # - # - # - # - # - # - # END OF ROUTER PROPERTIES # - # - # - # - # - # - # - # - # - # 
 
 # Procedimentos auxiliares: criacao de fluxos CBR...
 proc cria_fluxo_CBR { origem destino tamanho_pacote debito } {
@@ -292,7 +304,7 @@ $q(E1C0) printPolicerTable
 $q(E2C0) printPolicyTable
 $q(E2C0) printPolicerTable
  
-# Imprimir estatisticas das filas de espera de entrada em cada 10 segundos...
+# Imprimir estatisticas das filas de espera de entrada em cada 5 segundos...
 proc printQueueStats {} {
 	global ns q
 	puts "\n--------------------------------------------"
