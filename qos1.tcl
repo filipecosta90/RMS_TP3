@@ -77,6 +77,11 @@ set packetSize 1000  ;# em bytes
 set cir0 2000000     ;# em bits/seg
 set cbs0    5000     ;# em bytes
 
+## alterar para WRR
+#
+#
+#
+#
 # Set DS RED parameters from Edge1 to Core:
 $q(E1C0) meanPktSize $packetSize
 $q(E1C0) set numQueues_ 1
@@ -85,9 +90,14 @@ $q(E1C0) addPolicyEntry [$Cli1 id] [$Cli6 id] TokenBucket 10 $cir0 $cbs0
 $q(E1C0) addPolicyEntry -1 -1 Dumb 11       ;# todo o restante trafego...
 $q(E1C0) addPolicerEntry TokenBucket 10 11
 $q(E1C0) addPolicerEntry Dumb 11
+
+# marcamos aqui o trafego
 $q(E1C0) addPHBEntry 10 0 0
 $q(E1C0) addPHBEntry 11 0 1
+
+#aqm 
 $q(E1C0) configQ 0 0 20 40 0.02
+#comeca a descartar mais cedo na fila 1 
 $q(E1C0) configQ 0 1 10 20 0.10
 
 # Set DS RED parameters from Edge2 to Core:
