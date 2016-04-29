@@ -76,10 +76,13 @@ set q(C0E1) [[$ns link $C0 $E1] queue]
 set packetSize 1000  ;# em bytes
 
 # CIR -> Committed Information Rate
+# 2 Mbits/seg
 set cir0 2000000     ;# em bits/seg
 
 # CBS -> Committed Burst Size
 set cbs0    5000     ;# em bytes
+
+
 
 ###########################################
 ###
@@ -110,7 +113,7 @@ $q(E1C0) addPolicerEntry TokenBucket 10 11
 $q(E1C0) addPolicerEntry Dumb 11
 
 #tag traffic
-# The following command adds an entry to the PHB Table and maps code point 11 to physical queue 1 and virtual queue 0.
+# The following command adds an entry to the PHB Table and maps code point 10 to physical queue 0 and virtual queue 0.
 $q(E1C0) addPHBEntry 10 0 0
 # The following command adds an entry to the PHB Table and maps code point 11 to physical queue 0 and virtual queue 1.
 $q(E1C0) addPHBEntry 11 0 1
@@ -122,6 +125,8 @@ $q(E1C0) addPHBEntry 11 0 1
 # aqm 
 $q(E1C0) configQ 0 0 20 40 0.02
 $q(E1C0) configQ 0 1 10 20 0.10
+
+
 
 ###########################################
 ###
@@ -168,6 +173,8 @@ $q(E2C0) addPHBEntry 11 0 1
 $q(E2C0) configQ 0 0 20 40 0.02
 $q(E2C0) configQ 0 1 10 20 0.10
 
+
+
 ###########################################
 ###
 ###
@@ -195,7 +202,16 @@ $q(C0E1) addPHBEntry 11 0 1
 $q(C0E1) configQ 0 0 20 40 0.02
 $q(C0E1) configQ 0 1 10 20 0.10
 
+
+
+###########################################
+###
+###
 # Set DS RED parameters from Core to Edge2:
+###
+###
+###########################################
+
 $q(C0E2) meanPktSize $packetSize
 # Variable numQueues_ in class dsREDQueue specifies the number of physical queues.
 $q(C0E2) set numQueues_ 1
