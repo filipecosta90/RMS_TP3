@@ -104,7 +104,7 @@ $q(E1C0) set numQueues_ 3
 # Variable setNumPrec sets the number of virtual queues within one physical queue.
 $q(E1C0) setNumPrec 3
 # sets the scheduling mode to Weighted Round Robin
-$q(E1C0) setSchedularMode WRR
+$q(E1C0) setSchedularMode WIRR
 # sets weight for queues 1 to 3
 $q(E1C0) addQueueWeights 1 3
 # The above command sets theMRED mode of physical queue 0 to RIO-C. 
@@ -194,7 +194,7 @@ $q(E2C0) set numQueues_ 3
 # Variable setNumPrec sets the number of virtual queues within one physical queue.
 $q(E2C0) setNumPrec 3
 # sets the scheduling mode to Weighted Round Robin
-$q(E2C0) setSchedularMode WRR
+$q(E2C0) setSchedularMode WIRR
 # sets weight for queues 1 to 3
 $q(E2C0) addQueueWeights 1 3
 # The above command sets theMRED mode of physical queue 0 to RIO-C.
@@ -285,7 +285,7 @@ $q(C0E1) set numQueues_ 3
 # Variable setNumPrec sets the number of virtual queues within one physical queue.
 $q(C0E1) setNumPrec 3
 
-$q(C0E1) setSchedularMode WRR
+$q(C0E1) setSchedularMode WIRR
 # sets weight for queues 1 to 3
 $q(C0E1) addQueueWeights 1 3
 
@@ -331,8 +331,6 @@ $q(C0E1) configQ 2 0 10 20 0.02
 $q(C0E1) configQ 2 1 5 10 0.10
 $q(C0E1) configQ 2 2 1 5 1.00
 
-
-
 ###########################################
 ###
 ###
@@ -347,7 +345,7 @@ $q(C0E2) set numQueues_ 3
 # Variable setNumPrec sets the number of virtual queues within one physical queue.
 $q(C0E2) setNumPrec 3
 
-$q(C0E2) setSchedularMode WRR
+$q(C0E2) setSchedularMode WIRR
 # sets weight for queues 1 to 3
 $q(C0E2) addQueueWeights 1 3
 
@@ -465,9 +463,9 @@ proc finish {} {
 # invocacao: cria_fluxo $No_Origem $No_Destino $tamanho_pacote $debito_bps
 # comentar os que nao forem precisos...
 
-set cbr(Cli1_Cli6)  [cria_fluxo_CBR $Cli1 $Cli6 1000 3000000]
+set cbr(Cli1_Cli6)  [cria_fluxo_CBR $Cli1 $Cli6 1000 4000000]
 set ftp(Cli2_Cli5)  [cria_fluxo_FTP $Cli2 $Cli5 1000]
-set cbr(Cli2_Cli4)  [cria_fluxo_CBR $Cli2 $Cli5 1000 5000000]
+set cbr(Cli2_Cli4)  [cria_fluxo_CBR $Cli2 $Cli4 1000 4000000]
 
 # a voice connection over UDP from client 3 to client 4, and vice-versa.
 # # we considered 30 clients simultaneously using both fluxes 
@@ -480,8 +478,8 @@ while {$a<30} {
 }
 
 set ftp(Cli4_Cli2)  [cria_fluxo_FTP $Cli4 $Cli2 1000]
-set cbr(Cli6_Cli1)  [cria_fluxo_CBR $Cli6 $Cli1 1000 3000000]
-set cbr(Cli5_Cli2)  [cria_fluxo_CBR $Cli5 $Cli2 1000 5000000]
+set cbr(Cli6_Cli1)  [cria_fluxo_CBR $Cli6 $Cli1 1000 4000000]
+set cbr(Cli5_Cli2)  [cria_fluxo_CBR $Cli5 $Cli2 1000 4000000]
 
 
 # Imprimir, para cada QUEUE de entrada no BACKBONE, as politicas e
@@ -512,13 +510,13 @@ $ns at 5.0 "printQueueStats"
 # Definir as sequencias de eventos: start e stop das aplicacoes...
 # Comentar conforme desejado e de acordo com os exercicios propostos...
 
-$ns at 0.0 "$cbr(Cli1_Cli6) start"
+$ns at 2.5 "$cbr(Cli1_Cli6) start"
 $ns at 0.0 "$ftp(Cli2_Cli5) start"
 $ns at 0.0 "$ftp(Cli4_Cli2) start"
 $ns at 0.0 "$cbr(Cli6_Cli1) start"
 
-$ns at 5.0 "$cbr(Cli5_Cli2) start"
-$ns at 10.0 "$cbr(Cli2_Cli4) start"
+$ns at 5.0 "$cbr(Cli2_Cli4) start"
+$ns at 10.0 "$cbr(Cli5_Cli2) start"
 
 set a 0
 while {$a<30} {
@@ -531,11 +529,11 @@ while {$a<30} {
 }
 
 $ns at $tempo_simulacao "$cbr(Cli1_Cli6) stop"
+$ns at $tempo_simulacao "$cbr(Cli2_Cli4) stop"
 $ns at $tempo_simulacao "$ftp(Cli2_Cli5) stop"
 $ns at $tempo_simulacao "$ftp(Cli4_Cli2) stop"
-$ns at $tempo_simulacao "$cbr(Cli6_Cli1) stop"
 $ns at $tempo_simulacao "$cbr(Cli5_Cli2) stop"
-$ns at $tempo_simulacao "$cbr(Cli2_Cli4) stop"
+$ns at $tempo_simulacao "$cbr(Cli6_Cli1) stop"
 
 # Terminar a simulacao 1 segundo depois
 $ns at [expr $tempo_simulacao + 1.0] "finish"
