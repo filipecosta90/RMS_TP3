@@ -1,10 +1,8 @@
-
-
 %% tcl link colors
 %% $ns color 1 red
 %% $ns color 2 green
 %% $ns color 3 blue
-%% $ns color 4 yellow
+%% $ns color 4 yellow -- swap by teal
 %% $ns color 5 magenta
 %% $ns color 6 brown
 
@@ -12,7 +10,10 @@
 red = [ 255 0 0 ];
 green = [ 0 255 0 ];
 blue = [ 0 0 255 ];
-yellow = [ 255 255 0 ];
+%yellow = [ 255 255 0 ];
+
+yellow = [ 0 128 128 ];
+
 magenta = [ 255 0 255 ];
 brown = [ 165 42 42 ];
 orange = [ 255 165 0 ];
@@ -25,6 +26,7 @@ color7 = magenta/255;
 color8 = brown/255;
 
 color9 = orange/255;
+
 
 FigHandle = figure;
 set(FigHandle, 'Position', [0, 0, 640, 480]);
@@ -137,7 +139,7 @@ plot(time_1_7,loss_1_7,'d-','Color', color1);
 hold on;
 plot(link_2_6(:,1), link_2_6(:,2),'p-','Color', color2);
 hold on;
-plot(link_6_2(:,1), link_6_2(:,2),'p-','Color', color6);
+plot(link_6_2(:,1), link_6_2(:,2),'*-','Color', color6);
 hold on;
 plot(time_7_1,loss_7_1,'h-','Color', color7);
 hold on;
@@ -148,7 +150,7 @@ ylim([0 max(loss_full*1.50)]);
 
 
 
-l = legend('full loss','flow 0 -> 8 #packet loss ( 3Mb CBR App ) :: Client 1 to Client 6', 'flow 1 -> 6 #packet loss ( FTP connection ) :: Client 2 to Client 4',  'flow 1 -> 7 #packet loss ( FTP connection ) :: Client 2 to Client 5' , 'flow 2 -> 6 #packet loss ( VOIP connection over UDP ) :: Client 3 to Client 4', 'flow 6 -> 2 #packet loss ( VOIP connection over UDP ) :: Client 4 to Client 3',  'flow 7 -> 1 #packet loss ( FTP connection ) :: Client 5 to Client 2', 'flow 8 -> 0 #packet loss ( 3Mb CBR App ) :: Client 6 to Client 1');
+l = legend('full loss','flow 0 -> 8 #packet loss ( 3Mbps CBR App ) :: Client 1 to Client 6', 'flow 1 -> 6 #packet loss ( FTP connection ) :: Client 2 to Client 4',  'flow 1 -> 7 #packet loss ( FTP connection ) :: Client 2 to Client 5' , 'flow 2 -> 6 #packet loss ( 30 VOIP connections over UDP ) :: Client 3 to Client 4', 'flow 6 -> 2 #packet loss ( 30 VOIP connections over UDP ) :: Client 4 to Client 3',  'flow 7 -> 1 #packet loss ( FTP connection ) :: Client 5 to Client 2', 'flow 8 -> 0 #packet loss ( 3Mbps CBR App ) :: Client 6 to Client 1');
 
 
 

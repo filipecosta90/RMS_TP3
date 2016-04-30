@@ -2,14 +2,18 @@
 %% $ns color 1 red
 %% $ns color 2 green
 %% $ns color 3 blue
-%% $ns color 4 yellow
+%% $ns color 4 yellow -- swap by teal
 %% $ns color 5 magenta
 %% $ns color 6 brown
+
 
 red = [ 255 0 0 ];
 green = [ 0 255 0 ];
 blue = [ 0 0 255 ];
-yellow = [ 255 255 0 ];
+%yellow = [ 255 255 0 ];
+
+yellow = [ 0 128 128 ];
+
 magenta = [ 255 0 255 ];
 brown = [ 165 42 42 ];
 orange = [ 255 165 0 ];
@@ -74,10 +78,12 @@ hold on;
 
 plot(time_2_6, bw_2_6,'p-','Color', color2);
 hold on;
+
+grid on;
 ylim([0 max(bw_full*1.4)]);
 
 
-l = legend('full bw','flow 0 -> 8 bw ( 3Mb CBR App ) :: Client 1 to Client 6' , 'flow 1 -> 7 bw ( 3Mb CBR App ) :: Client 2 to Client 5' , 'flow 2 -> 6 bw ( 3Mb CBR App ) :: Client 3 to Client 4' );
+l = legend('full bw','flow 0 -> 8 bw ( 3Mbps CBR App ) :: Client 1 to Client 6' , 'flow 1 -> 7 bw ( 3Mbps CBR App ) :: Client 2 to Client 5' , 'flow 2 -> 6 bw ( 3Mbps CBR App ) :: Client 3 to Client 4' );
 
 
 set(l,'FontSize',12);

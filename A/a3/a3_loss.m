@@ -1,19 +1,22 @@
-
-
 %% tcl link colors
 %% $ns color 1 red
 %% $ns color 2 green
 %% $ns color 3 blue
-%% $ns color 4 yellow
+%% $ns color 4 yellow -- swap by teal
 %% $ns color 5 magenta
 %% $ns color 6 brown
+
 
 red = [ 255 0 0 ];
 green = [ 0 255 0 ];
 blue = [ 0 0 255 ];
-yellow = [ 255 255 0 ];
+%yellow = [ 255 255 0 ];
+
+yellow = [ 0 128 128 ];
+
 magenta = [ 255 0 255 ];
 brown = [ 165 42 42 ];
+orange = [ 255 165 0 ];
 
 color0 = red/255;
 color1 = green/255;
@@ -21,6 +24,8 @@ color2 = blue/255;
 color6 = yellow/255;
 color7 = magenta/255;
 color8 = brown/255;
+
+color9 = orange/255;
 
 FigHandle = figure;
 set(FigHandle, 'Position', [0, 0, 640, 480]);
@@ -68,8 +73,8 @@ ylim([0 max(loss_full*1.40)]);
 
 
 
-l = legend('full loss','flow 0 -> 8 loss (5Mb CBR)', 'flow 1 -> 7 loss (3Mb CBR)' , 'flow 2 -> 6 loss (3Mb CBR)', 'flow 7 -> 1 loss (3Mb CBR)', 'flow 8 -> 0 loss (5Mb CBR)');
 
+l = legend('full loss','flow 0 -> 8 #packet loss ( 5Mbps CBR ) :: Client 1 to Client 6' , 'flow 1 -> 7 #packet loss ( 3Mbps CBR ) :: Client 2 to Client 5' , 'flow 2 -> 6 #packet loss ( 3Mbps CBR ) :: Client 3 to Client 4' , 'flow 8 -> 0 #packet loss ( 5Mbps CBR ) :: Client 6 to Client 1' );
 
   
 
