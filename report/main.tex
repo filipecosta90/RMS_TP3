@@ -4,10 +4,6 @@
 
 
 
-\usepackage{array}
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 \usepackage{float}
 
@@ -46,14 +42,15 @@
 
 \usepackage[utf8x]{inputenc} 
 
-\usepackage{array}
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
 
 \usepackage{float}
 \usepackage{listings}
 
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 \begin{document}
 %
@@ -199,9 +196,9 @@ This exploratory essay focus on developing a comparative study of traffic contro
      Using the procedures already included in the simulation script, several changes were made in order to obtain the
      following scenario:
      \begin{itemize}
-     \item \textbf{a CBR application} sending 4Mbps from client 1 to client 6, and other from client 6 to client 1;
-     \item  \textbf{a FTP connection} from client 2 to client 5, and other from client 4 to client 2;
-     \item  \textbf{a voice connection over UDP} from client 3 to client 4, and vice-versa. Since VOIP Bandwidth consumption naturally depends on the codec used, we selected G.711 - 64 Kbps Bitrate and 87.2 Kbps Nominal Ethernet Bandwidth, and simulated a maximum of 30 calls at any given simulation time. The presented graphic results for VOIP are a aggregation of all the 30calls. 
+     \item a \textbf{CBR application} sending 4Mbps from client 1 to client 6, and other from client 6 to client 1;
+     \item  a \textbf{FTP connection} from client 2 to client 5, and other from client 4 to client 2;
+     \item  a \textbf{voice connection over UDP} from client 3 to client 4, and vice-versa. Since VOIP Bandwidth consumption naturally depends on the codec used, we selected G.711 - 64 Kbps Bitrate and 87.2 Kbps Nominal Ethernet Bandwidth, and simulated a maximum of 30 calls at any given simulation time. The presented graphic results for VOIP are an aggregation of all the 30 calls. 
      \end{itemize}
      The corresponding results are shown in figures \ref{graph:bw_b1} and \ref{graph:loss_b11}.
 
@@ -257,7 +254,8 @@ This exploratory essay focus on developing a comparative study of traffic contro
 \label{diffserv}
 In some flows, the loss of some segments has more impact than others on the perfomance of the service/application -- as FTP (over TCP) and VOIP (over UDP). We call the packets from these services, our vulnerable packets in our simulation scenario. By "marking" these segments/packets with a higher priority and implementing the priority using a diffserv architecture, the overall perfomance and QoS considerably improves. \par 
 For a first approach we considered similar clients with CBR applications,  generating each one a rate of 3Mbps, for a total of six flows (0 $ \rightarrow $ 8, 1 $ \rightarrow $ 7, 2 $ \rightarrow $ 6, 8 $ \rightarrow $0, 7 $ \rightarrow $1,    6 $ \rightarrow $2).\par 
-We considered the simple network topology defined in figure \ref{fig:network}, and before any further change we analysed the links under congestion, and identified the queue which suffers higher packetloss.\par 
+We considered the simple network topology defined in figure \ref{fig:network}, and before any further change we analysed the links under congestion, and identified the queue which suffers higher packet
+loss.\par 
 
      \subsection{Identification of the queueing management parameters for an Edge $\rightarrow$  Core Configuration and an Core $\rightarrow$  Edge Configuration}
      
@@ -485,7 +483,470 @@ The corresponding results are shown in figures \ref{graph:bw_c4} and \ref{graph:
      Notice that this "solution" only improves the equitable bandwidth distribution across flow because they all are produced with the same service/traffic type, and, when compared to the "best-effort" scenario with Random Early Detection for Congestion Avoidance, the only improvement is the possibility of limiting the bandwidth percentage to be used, since we can "become" harsher to the yellow tagged traffic increasing its maximum dropping probability to 1, and therefore dropping every traffic out the Committed Information Rate limit. \par
      But the problem of the multi-services in the network maintains. In this simple simulation scenario there is only the possibility of tagging traffic to be "in-bounds" or "out-of-bounds". If we added both UDP and TCP traffic with other characteristics, the problems identified in section \ref{multiservice} would still be observed.
      
+     
+ \subsection{Simulating a multi-service network in a DiffServ scenario}
+  Suppose that the service provider intends to implement the following policy:
+  \begin{itemize}
+  \item To assure a 30 \% of capacity to clients with identical characteristics (the full capacity may be
+used if available).
+  \item Traffic exceeding the negotiated rate must be downgraded, i.e., forwarded with lower priority.
+  \end{itemize}
+  Using the procedures already included in the simulation script, several changes were made in order to obtain the following traffic model:
+   \begin{itemize}
+     \item a \textbf{CBR application} sending 4Mbps from client 1 to client 6, starting at 2.5s;
+          \item a \textbf{CBR application} sending 4Mbps from client 2 to client 4, starting at 5s;
+          \item a \textbf{CBR application} sending 4Mbps from client 5 to client 2, starting at 10s;
+              \item a \textbf{CBR application} sending 4Mbps from client 6 to client 1, starting at 0s;
+     \item  a \textbf{FTP connection} from client 2 to client 5, and other from client 4 to client 2;
+     \item  a \textbf{voice connection over UDP} from client 3 to client 4, and vice-versa. Since VOIP Bandwidth consumption naturally depends on the codec used, we selected G.711 - 64 Kbps Bitrate and 87.2 Kbps Nominal Ethernet Bandwidth, and simulated a maximum of 30 calls at any given simulation time. The presented graphic results for VOIP are an aggregation of all the 30 calls. 
+     \end{itemize}
+\par 
+In order to correctly simulate Differentiated Services, giving special attention in protecting vulnerable real-time packets, several changes were made to the parameters for  Edge $\rightarrow$  Core Configurations and an Core $\rightarrow$  Edge Configurations:
 
+
+     \subsubsection{Edge $\rightarrow$ Core Configurations}
+     \begin{itemize}
+     \item \textbf{The number of existing queues and the traffic scheduler in use} \par 
+     3 physical queues, each implementing 3 virtual queues;  
+     \vspace{5mm}
+     \item \textbf{Policy Entry}
+     \begin{itemize}
+     
+    	 \item \textbf{Client1 $\rightarrow$ Client6  ( 4 Mbps CBR App )} -- Two Rate Three Color Marker:
+   	  	\begin{itemize}
+   	 	 \item \textbf{Committed Information Rate:} 1 Mbits/sec;
+   		  \item \textbf{Committed Burst Size:} 5 KBytes;
+		    \item \textbf{Peak Information Rate:} 3 Mbits/sec;
+		     \item \textbf{Peak Burst Size:} 5 KBytes;
+  		   \item \textbf{Policer Table} has initial (green) code point 10, and downgraded (yellow) code point 11, and further downgraded (red) code point 12;
+     		\end{itemize}
+		
+		\item \textbf{Client2 $\rightarrow$ Client4  ( 4 Mbps CBR App )} -- Two Rate Three Color Marker:
+   	  	\begin{itemize}
+   	 	 \item \textbf{Committed Information Rate:} 1 Mbits/sec;
+   		  \item \textbf{Committed Burst Size:} 5 KBytes;
+		    \item \textbf{Peak Information Rate:} 3 Mbits/sec;
+		     \item \textbf{Peak Burst Size:} 5 KBytes;
+  		   \item \textbf{Policer Table} has initial (green) code point 10, and downgraded (yellow) code point 11, and further downgraded (red) code point 12;
+     		\end{itemize}
+		
+		
+		\item \textbf{Client2 $\rightarrow$ Client5  ( FTP connection )} -- Time Sliding Window Three Color Marker:
+   	  	\begin{itemize}
+   	 	 \item \textbf{Committed Information Rate:} 1 Mbits/sec;
+		    \item \textbf{Peak Information Rate:} 3 Mbits/sec;
+  		   \item \textbf{Policer Table} has initial (green) code point 7, and downgraded (yellow) code point 8, and further downgraded (red) code point 9;
+     		\end{itemize}
+		
+		
+		
+		
+		\item \textbf{Client3 $\rightarrow$ Client4 ( 30 VOIP connections over UDP )} -- TokenBucket:
+   	  	\begin{itemize}
+   	 	 \item \textbf{Committed Information Rate:} 1 Mbits/sec;
+   		  \item \textbf{Committed Burst Size:} 5 KBytes;
+  		   \item \textbf{Policer Table} has initial (green) code point 4, and downgraded (yellow) code point 5;
+     		\end{itemize}
+
+\item \textbf{Client4 $\rightarrow$ Client2  ( FTP connection )} -- Time Sliding Window Three Color Marker:
+   	  	\begin{itemize}
+   	 	 \item \textbf{Committed Information Rate:} 1 Mbits/sec;
+		    \item \textbf{Peak Information Rate:} 3 Mbits/sec;
+  		   \item \textbf{Policer Table} has initial (green) code point 7, and downgraded (yellow) code point 8, and further downgraded (red) code point 9;
+     		\end{itemize}
+		
+		\item \textbf{Client4 $\rightarrow$ Client3 ( 30 VOIP connections over UDP )} -- TokenBucket:
+   	  	\begin{itemize}
+   	 	 \item \textbf{Committed Information Rate:} 1 Mbits/sec;
+   		  \item \textbf{Committed Burst Size:} 5 KBytes;
+  		   \item \textbf{Policer Table} has initial (green) code point 4, and downgraded (yellow) code point 5;
+     		\end{itemize}
+		
+
+	\item \textbf{Client5 $\rightarrow$ Client2  ( 4 Mbps CBR App )} -- Two Rate Three Color Marker:
+   	  	\begin{itemize}
+   	 	 \item \textbf{Committed Information Rate:} 1 Mbits/sec;
+   		  \item \textbf{Committed Burst Size:} 5 KBytes;
+		    \item \textbf{Peak Information Rate:} 3 Mbits/sec;
+		     \item \textbf{Peak Burst Size:} 5 KBytes;
+  		   \item \textbf{Policer Table} has initial (green) code point 10, and downgraded (yellow) code point 11, and further downgraded (red) code point 12;
+     		\end{itemize}
+		
+			\item \textbf{Client6 $\rightarrow$ Client1  ( 4 Mbps CBR App )} -- Two Rate Three Color Marker:
+   	  	\begin{itemize}
+   	 	 \item \textbf{Committed Information Rate:} 1 Mbits/sec;
+   		  \item \textbf{Committed Burst Size:} 5 KBytes;
+		    \item \textbf{Peak Information Rate:} 3 Mbits/sec;
+		     \item \textbf{Peak Burst Size:} 5 KBytes;
+  		   \item \textbf{Policer Table} has initial (green) code point 10, and downgraded (yellow) code point 11, and further downgraded (red) code point 12;
+     		\end{itemize}
+     
+     \item \textbf{Every remaining initial and end station} -- Dumb:
+     \begin{itemize}
+     \item \textbf{Policer Table} has always downgraded (yellow) code point 11;
+     \end{itemize}
+     \end{itemize}
+
+     \vspace{5mm}
+     \item \textbf{The queueing discipline in use and the configuration of each queue:}\par
+     Weighted Round Robin scheduling and RIO-C Active Queue Management: \par 
+     \begin{itemize}
+     \item physical queue 0:
+     \begin{itemize}
+     	\item virtual queue 0:
+     	\begin{itemize}
+     		\item \textbf{minimum threshold}: 20 Packets;
+		     \item \textbf{maximum threshold}: 40 Packets;
+		     \item \textbf{maximum dropping probability}: $2 * 10^{-2}$;
+         \end{itemize}
+    	 \item virtual queue 1:
+   	  \begin{itemize}
+     			\item \textbf{minimum threshold}: 10 Packets;
+ 			    \item \textbf{maximum threshold}: 20 Packets;
+   			  \item \textbf{maximum dropping probability}: $1 * 10^{-1}$;
+  	   \end{itemize}
+	   
+	   \item virtual queue 2:
+   	  \begin{itemize}
+     			\item \textbf{minimum threshold}: 5 Packets;
+ 			    \item \textbf{maximum threshold}: 10 Packets;
+   			  \item \textbf{maximum dropping probability}: $5 * 10^{-1}$;
+  	   \end{itemize}   
+    \end{itemize}
+    
+    
+      \item physical queue 1:
+     \begin{itemize}
+     	\item virtual queue 0:
+     	\begin{itemize}
+     		\item \textbf{minimum threshold}: 10 Packets;
+		     \item \textbf{maximum threshold}: 20 Packets;
+		     \item \textbf{maximum dropping probability}: $2 * 10^{-2}$;
+         \end{itemize}
+    	 \item virtual queue 1:
+   	  \begin{itemize}
+     			\item \textbf{minimum threshold}: 5 Packets;
+ 			    \item \textbf{maximum threshold}: 10 Packets;
+   			  \item \textbf{maximum dropping probability}: $1 * 10^{-1}$;
+  	   \end{itemize}
+	   
+	   \item virtual queue 2:
+   	  \begin{itemize}
+     			\item \textbf{minimum threshold}: 1 Packets;
+ 			    \item \textbf{maximum threshold}: 5 Packets;
+   			  \item \textbf{maximum dropping probability}: $5 * 10^{-1}$;
+  	   \end{itemize}   
+    \end{itemize}
+
+
+  \item physical queue 2:
+     \begin{itemize}
+     	\item virtual queue 0:
+     	\begin{itemize}
+     		\item \textbf{minimum threshold}: 10 Packets;
+		     \item \textbf{maximum threshold}: 20 Packets;
+		     \item \textbf{maximum dropping probability}: $2 * 10^{-2}$;
+         \end{itemize}
+    	 \item virtual queue 1:
+   	  \begin{itemize}
+     			\item \textbf{minimum threshold}: 5 Packets;
+ 			    \item \textbf{maximum threshold}: 10 Packets;
+   			  \item \textbf{maximum dropping probability}: $1 * 10^{-1}$;
+  	   \end{itemize}
+	   
+	   \item virtual queue 2:
+   	  \begin{itemize}
+     			\item \textbf{minimum threshold}: 1 Packets;
+ 			    \item \textbf{maximum threshold}: 5 Packets;
+   			  \item \textbf{maximum dropping probability}: 1;
+  	   \end{itemize}   
+    \end{itemize}
+
+     
+     \end{itemize}
+
+     \vspace{5mm}
+     \item \textbf{the amount of memory allocated to the queues:}\par
+
+     Default queue buffer size is 20 packets (Packet size 1 KB) : 20KB per queue;
+
+
+     \vspace{5mm}
+     \item \textbf{the queues which handle data flows:}\par
+     \begin{itemize}
+     \item \textbf{Code point 4}: mapped to physical queue 0 and virtual queue 0;
+     \item \textbf{Code point 5}: mapped to physical queue 0 and virtual queue 1;
+          
+     \item \textbf{Code point 7}: mapped to physical queue 1 and virtual queue 0;
+     \item \textbf{Code point 8}: mapped to physical queue 1 and virtual queue 1;
+     \item \textbf{Code point 9}: mapped to physical queue 1 and virtual queue 2;
+
+     \item \textbf{Code point 10}: mapped to physical queue 2 and virtual queue 0;
+     \item \textbf{Code point 11}: mapped to physical queue 2 and virtual queue 1;
+     \item \textbf{Code point 12}: mapped to physical queue 2 and virtual queue 2;
+
+
+     \end{itemize}
+
+
+     \end{itemize}
+
+
+     \subsubsection{Core $\rightarrow$ Edge Configurations}
+
+
+\begin{itemize}
+     \item \textbf{The number of existing queues and the traffic scheduler in use} \par 
+     3 physical queues, each implementing 3 virtual queues;  
+     
+
+     \vspace{5mm}
+     \item \textbf{The queueing discipline in use and the configuration of each queue:}\par
+     Weighted Round Robin scheduling and RIO-C Active Queue Management: \par 
+     \begin{itemize}
+     \item physical queue 0:
+     \begin{itemize}
+     	\item virtual queue 0:
+     	\begin{itemize}
+     		\item \textbf{minimum threshold}: 20 Packets;
+		     \item \textbf{maximum threshold}: 40 Packets;
+		     \item \textbf{maximum dropping probability}: $2 * 10^{-2}$;
+         \end{itemize}
+    	 \item virtual queue 1:
+   	  \begin{itemize}
+     			\item \textbf{minimum threshold}: 10 Packets;
+ 			    \item \textbf{maximum threshold}: 20 Packets;
+   			  \item \textbf{maximum dropping probability}: $1 * 10^{-1}$;
+  	   \end{itemize}
+	   
+	   \item virtual queue 2:
+   	  \begin{itemize}
+     			\item \textbf{minimum threshold}: 5 Packets;
+ 			    \item \textbf{maximum threshold}: 10 Packets;
+   			  \item \textbf{maximum dropping probability}: $5 * 10^{-1}$;
+  	   \end{itemize}   
+    \end{itemize}
+    
+    
+      \item physical queue 1:
+     \begin{itemize}
+     	\item virtual queue 0:
+     	\begin{itemize}
+     		\item \textbf{minimum threshold}: 10 Packets;
+		     \item \textbf{maximum threshold}: 20 Packets;
+		     \item \textbf{maximum dropping probability}: $2 * 10^{-2}$;
+         \end{itemize}
+    	 \item virtual queue 1:
+   	  \begin{itemize}
+     			\item \textbf{minimum threshold}: 5 Packets;
+ 			    \item \textbf{maximum threshold}: 10 Packets;
+   			  \item \textbf{maximum dropping probability}: $1 * 10^{-1}$;
+  	   \end{itemize}
+	   
+	   \item virtual queue 2:
+   	  \begin{itemize}
+     			\item \textbf{minimum threshold}: 1 Packets;
+ 			    \item \textbf{maximum threshold}: 5 Packets;
+   			  \item \textbf{maximum dropping probability}: $5 * 10^{-1}$;
+  	   \end{itemize}   
+    \end{itemize}
+
+
+  \item physical queue 2:
+     \begin{itemize}
+     	\item virtual queue 0:
+     	\begin{itemize}
+     		\item \textbf{minimum threshold}: 10 Packets;
+		     \item \textbf{maximum threshold}: 20 Packets;
+		     \item \textbf{maximum dropping probability}: $2 * 10^{-2}$;
+         \end{itemize}
+    	 \item virtual queue 1:
+   	  \begin{itemize}
+     			\item \textbf{minimum threshold}: 5 Packets;
+ 			    \item \textbf{maximum threshold}: 10 Packets;
+   			  \item \textbf{maximum dropping probability}: $1 * 10^{-1}$;
+  	   \end{itemize}
+	   
+	   \item virtual queue 2:
+   	  \begin{itemize}
+     			\item \textbf{minimum threshold}: 1 Packets;
+ 			    \item \textbf{maximum threshold}: 5 Packets;
+   			  \item \textbf{maximum dropping probability}: 1;
+  	   \end{itemize}   
+    \end{itemize}
+
+     
+     \end{itemize}
+
+     \vspace{5mm}
+     \item \textbf{the amount of memory allocated to the queues:}\par
+
+     Default queue buffer size is 20 packets (Packet size 1 KB) : 20KB per queue;
+
+
+     \vspace{5mm}
+     \item \textbf{the queues which handle data flows:}\par
+     \begin{itemize}
+     \item \textbf{Code point 4}: mapped to physical queue 0 and virtual queue 0;
+     \item \textbf{Code point 5}: mapped to physical queue 0 and virtual queue 1;
+          
+     \item \textbf{Code point 7}: mapped to physical queue 1 and virtual queue 0;
+     \item \textbf{Code point 8}: mapped to physical queue 1 and virtual queue 1;
+     \item \textbf{Code point 9}: mapped to physical queue 1 and virtual queue 2;
+
+     \item \textbf{Code point 10}: mapped to physical queue 2 and virtual queue 0;
+     \item \textbf{Code point 11}: mapped to physical queue 2 and virtual queue 1;
+     \item \textbf{Code point 12}: mapped to physical queue 2 and virtual queue 2;
+
+
+     \end{itemize}
+
+
+     \end{itemize}
+     
+     
+     
+     As you can state in \textbf{Edge $\rightarrow$ Core Configurations}, the policer configuration and the queue management discipline are much more harsher to CBR Apps generated traffic. By completely dropping all packets further downgraded to that specific type of traffic we are assuring a minimum QoS to the other services present on the network, keeping the  requested 30\% of capacity to clients with identical characteristics (we considered the maximum CBR bandwidth as 3Mbps), since as you can see the 1Mbps CIR is higher than 30\% of 3Mbps. The full capacity delegated to CBR traffic is used by a flow if no other similar client is using its delegated bandwidth, since traffic between 1Mbps and 3Mbps is tagged with yellow code point 11, as requested.\par
+     To fully proof the requested capabilities, the simulation results are shown in figures \ref{graph:bw_c5_e1}, \ref{graph:bw_c5_e2}, and \ref{graph:loss_c5}. Denote that, since the simulation scenario is not fully symmetric we included also an bandwidth analysis for \textbf{E2 $\rightarrow$ C0} traffic flows on figure \ref{graph:bw_c5_e2}.
+
+  \begin{figure}[H]
+     \centering
+     \includegraphics[width=1\columnwidth]{EPS/C/bw_c5_e1.eps}
+     \caption{Bandwidth analysis by flow and aggregated, for edge router E1 and core router C0, implementing Differentiated Services.}
+     \label{graph:bw_c5_e1}
+     \end{figure}
+
+\begin{figure}[H]
+     \centering
+     \includegraphics[width=1\columnwidth]{EPS/C/bw_c5_e2.eps}
+     \caption{Bandwidth analysis by flow and aggregated, for edge router E2 and core router C0, implementing Differentiated Services.}
+     \label{graph:bw_c5_e2}
+     \end{figure}
+     
+
+     \begin{figure}[H]
+     \centering
+     \includegraphics[width=1\columnwidth]{EPS/C/loss_c5.eps}
+     \caption{Packet loss evolution by flow and aggregated, with edge/core routers implementing Differentiated Services.}
+     \label{graph:loss_c5}
+     \end{figure} 
+     
+     As you can stated by analysing figures \ref{graph:bw_c5_e1} and \ref{graph:bw_c5_e2}, despite the late start, all traffic from the same class has the same equitable bandwidth distribution -- as desired. We can also stated, by analysing figure \ref{graph:loss_c5},  that an increase in the total packets sent by flows only influences the packet drop of its traffic class. 
+     
+     
+\subsubsection{Identification of the queue which suffers higher packet loss}.
+
+\\Taking into account the simulation results/statistics, presented on tables \ref{table:c5_e1_c0_5s} to \ref{table:c5_c0_e2_15s}, we can identify the queue which suffers higher packet loss -- physical queue 2 and virtual queue 1 (CBR traffic downgrade (yellow)), from E1 to C0 (Edge $\rightarrow$ Core Configuration). The network behaviour is the expected one. As you can state all UDP and FTP traffic is delivered, and only the CBR traffic exceeding CIR is dropped  in congestion. \subsubsection{Statistics for time = 5s}
+.
+\begin{table}[H]
+     \caption{Statistics for the queue from E1 to C0 (Edge $\rightarrow$ Core Configuration) }
+     \label{table:c5_e1_c0_5s}
+     \centering
+     \begin{tabular}{ | L{1cm} | R{1.0cm} | R{1.0cm} | R {1.0  cm} | R {1.0  cm} |}
+     \hline  CP & TotPkts &  TxPkts  & ldrops &  edrops \\ \hline \hline     
+All  &   4250  &   3918   &   196   &   136\\ \hline
+4     & 362   &   362   &     0   &     0\\ \hline
+5    &    1     &   1     &   0      &  0\\ \hline
+7    &  664   &   664    &    0    &    0\\ \hline
+8     & 334   &   334      &  0      &  0\\ \hline
+10  &   1644    & 1644 &       0    &    0\\ \hline
+11   &  1245  &    913  &    196    &  136\\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+     \caption{Statistics for the queue from C0 to E2 (Core $\rightarrow$  Edge Configuration) }
+     \label{table:c5_c0_e2_5s}
+     \centering
+     \begin{tabular}{ | L{1cm} | R{1.0cm} | R{1.0cm} | R {1.0  cm} | R {1.0  cm} |}
+     \hline  CP & TotPkts &  TxPkts  & ldrops &  edrops \\ \hline \hline
+All&     3890   &  3890     &   0      &  0\\ \hline
+4   &   362   &   362  &      0   &     0\\ \hline
+5    &    1    &    1   &     0   &     0\\ \hline
+7   &   664    &  664  &      0     &   0\\ \hline
+8  &    333    &  333    &    0    &    0\\ \hline
+10  &   1625   &  1625    &    0   &     0\\ \hline
+11     & 905  &    905     &   0    &    0\\ \hline
+     \end{tabular}
+     \end{table}
+     
+ 
+ 
+ \subsubsection{Statistics for time = 10s}
+.
+\begin{table}[H]
+     \caption{Statistics for the queue from E1 to C0 (Edge $\rightarrow$ Core Configuration) }
+     \label{table:c5_e1_c0_10s}
+     \centering
+     \begin{tabular}{ | L{1cm} | R{1.0cm} | R{1.0cm} | R {1.0  cm} | R {1.0  cm} |}
+     \hline  CP & TotPkts &  TxPkts  & ldrops &  edrops \\ \hline \hline
+    All  &    8599  &    7957 &      312  &     330\\ \hline
+4    &   726   &    726   &      0    &     0\\ \hline
+5     &    1    &     1    &     0    &     0\\ \hline
+7  &    1266  &    1266    &     0    &     0\\ \hline
+8   &    792   &    792    &     0   &      0\\ \hline
+10  &    3319  &    3319    &     0   &      0\\ \hline
+11   &   2495  &    1853   &    312  &     330\\ \hline
+     \end{tabular}
+     \end{table}
+
+\begin{table}[H]
+     \caption{Statistics for the queue from C0 to E2 (Core $\rightarrow$  Edge Configuration) }
+     \label{table:c5_c0_e2_10s}
+     \centering
+     \begin{tabular}{ | L{1cm} | R{1.0cm} | R{1.0cm} | R {1.0  cm} | R {1.0  cm} |}
+     \hline  CP & TotPkts &  TxPkts  & ldrops &  edrops \\ \hline \hline
+All  &    7938   &   7938    &     0    &     0\\ \hline
+4   &    724    &   724    &     0    &     0\\ \hline
+5   &      1      &   1  &       0     &    0\\ \hline
+7 &     1266    &  1266    &     0    &     0\\ \hline
+8   &    792  &     792  &       0    &     0\\ \hline
+10  &    3308 &     3308   &      0   &      0\\ \hline
+11   &   1847   &   1847  &       0   &      0\\ \hline
+     \end{tabular}
+     \end{table}
+     
+ 
+
+ \subsubsection{Statistics for time = 15s}
+.
+
+\begin{table}[H]
+     \caption{Statistics for the queue from E1 to C0 (Edge $\rightarrow$ Core Configuration) }
+     \label{table:c5_e1_c0_15s}
+     \centering
+     \begin{tabular}{ | L{1cm} | R{1.0cm} | R{1.0cm} | R {1.0  cm} | R {1.0  cm} |}
+     \hline  CP & TotPkts &  TxPkts  & ldrops &  edrops \\ \hline \hline
+     
+  All   & 12911  &  12027    &  357   &   527\\ \hline
+4  &   1021   &  1021 &       0    &    0\\ \hline
+5    &    1    &    1    &    0    &    0\\ \hline
+7  &   1864   &  1864     &   0    &    0\\ \hline
+8   &  1264   &  1264  &      0   &     0\\ \hline
+10  &   5016  &   5016     &   0   &     0\\ \hline
+11 &    3745   &  2861   &   357   &   527\\ \hline
+     \end{tabular}
+     \end{table}
+ 
+ 
+\begin{table}[H]
+     \caption{Statistics for the queue from C0 to E2 (Core $\rightarrow$  Edge Configuration) }
+     \label{table:c5_c0_e2_15s}
+     \centering
+     \begin{tabular}{ | L{1cm} | R{1.0cm} | R{1.0cm} | R {1.0  cm} | R {1.0  cm} |}
+     \hline  CP & TotPkts &  TxPkts  & ldrops &  edrops \\ \hline \hline
+  All &   12006  &  12006  &      0    &    0\\ \hline
+4   &  1020  &   1020   &     0     &   0\\ \hline
+5     &   1     &   1    &    0    &    0\\ \hline
+7   &  1861  &   1861  &      0   &     0\\ \hline
+8   &  1258    & 1258   &     0   &     0\\ \hline
+10   &  5012  &   5012   &     0    &    0\\ \hline
+11  &   2854  &   2854     &   0  &      0\\ \hline
+     \end{tabular}
+     \end{table}
+     
+     
+     
      \end{document}
 
 
