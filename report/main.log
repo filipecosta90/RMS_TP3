@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.2.16)  2 MAY 2016 13:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.2.16)  2 MAY 2016 18:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -7,6 +7,102 @@ entering extended mode
 (./main.tex
 LaTeX2e <2015/01/01>
 Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+
+./main.tex:7: LaTeX Error: \usepackage before \documentclass.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 \usepackage{
+                array}
+? 
+./main.tex:8: Undefined control sequence.
+l.8 \newcolumntype
+                  {L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{...
+
+? 
+
+./main.tex:8: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8 \newcolumntype{L
+                    }[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{...
+
+? 
+Missing character: There is no L in font nullfont!
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no > in font nullfont!
+./main.tex:8: Undefined control sequence.
+l.8 ...>{\raggedright\let\newline\\\arraybackslash
+                                                  \hspace{0pt}}m{#1}}
+? 
+Missing character: There is no m in font nullfont!
+./main.tex:8: You can't use `macro parameter character #' in horizontal mode.
+l.8 ...et\newline\\\arraybackslash\hspace{0pt}}m{#
+                                                  1}}
+? 
+Missing character: There is no 1 in font nullfont!
+./main.tex:9: Undefined control sequence.
+l.9 \newcolumntype
+                  {C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0p...
+
+? 
+Missing character: There is no C in font nullfont!
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no > in font nullfont!
+./main.tex:9: Undefined control sequence.
+l.9 ...]{>{\centering\let\newline\\\arraybackslash
+                                                  \hspace{0pt}}m{#1}}
+? 
+Missing character: There is no m in font nullfont!
+./main.tex:9: You can't use `macro parameter character #' in horizontal mode.
+l.9 ...et\newline\\\arraybackslash\hspace{0pt}}m{#
+                                                  1}}
+? 
+Missing character: There is no 1 in font nullfont!
+./main.tex:10: Undefined control sequence.
+l.10 \newcolumntype
+                   {R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{...
+
+? 
+Missing character: There is no R in font nullfont!
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no > in font nullfont!
+./main.tex:10: Undefined control sequence.
+l.10 ...>{\raggedleft\let\newline\\\arraybackslash
+                                                  \hspace{0pt}}m{#1}}
+? 
+Missing character: There is no m in font nullfont!
+./main.tex:10: You can't use `macro parameter character #' in horizontal mode.
+l.10 ...t\newline\\\arraybackslash\hspace{0pt}}m{#
+                                                  1}}
+? 
+Missing character: There is no 1 in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 8--11
+[]
+ []
+
+
+./main.tex:12: LaTeX Error: \usepackage before \documentclass.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.12 \usepackage{
+                 float}
+? 
 (./IEEEtran.cls
 Document Class: IEEEtran 
 \@IEEEtrantmpdimenA=\dimen102
@@ -103,6 +199,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24.09> not available
 \@IEEEquantizemultiple=\count92
 \@IEEEquantizeboxA=\box26
 \@IEEEtmpitemindent=\dimen124
+[1]
 \IEEEPARstartletwidth=\dimen125
 \c@IEEEbiography=\count93
 \@IEEEtranrubishbin=\box27
@@ -311,18 +408,18 @@ Package: listings 2014/09/06 1.5e (Carsten Heinz)
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
 
 -- Lines per column: 58 (exact).
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -342,50 +439,50 @@ LaTeX Font Info:    ... okay on input line 52.
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 \c@lstlisting=\count120
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 72.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 78.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.05249> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 78.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 )
-<PNG/network.png, id=1, 1096.095pt x 415.5525pt>
+<PNG/network.png, id=6, 1096.095pt x 415.5525pt>
 File: PNG/network.png Graphic file (type png)
  <use PNG/network.png>
-Package pdftex.def Info: PNG/network.png used on input line 90.
+Package pdftex.def Info: PNG/network.png used on input line 96.
 (pdftex.def)             Requested size: 243.91125pt x 92.46806pt.
 
 
-LaTeX Warning: Reference `c5' on page 1 undefined on input line 97.
+LaTeX Warning: Reference `c5' on page 2 undefined on input line 103.
 
-LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 10
-4.
+LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 11
+0.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.03749> on input line 104.
+(Font)              <10.03749> on input line 110.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.0262> on input line 104.
+(Font)              <7.0262> on input line 110.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.01874> on input line 104.
+(Font)              <5.01874> on input line 110.
 
-Underfull \hbox (badness 2343) in paragraph at lines 107--108
+Underfull \hbox (badness 2343) in paragraph at lines 113--114
 []\OT1/ptm/m/n/10.03749 Parameters: rate (bit-s/sec) e packet size
  []
 
-./main.tex:129: Undefined control sequence.
-l.129 ...called Best-Effort as there are \textbfno
+./main.tex:135: Undefined control sequence.
+l.135 ...called Best-Effort as there are \textbfno
                                                    QoS guarantees} on packet...
 
 ? 
-./main.tex:129: Too many }'s.
-l.129 ...rt as there are \textbfno QoS guarantees}
+./main.tex:135: Too many }'s.
+l.135 ...rt as there are \textbfno QoS guarantees}
                                                    on packet delivery (in te...
 
 ? 
-[1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+[2{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
  <./PNG/network.png (PNG copy)>]
@@ -397,15 +494,15 @@ Package epstopdf Info: Source file: <EPS/A/bw_a2.eps>
 (epstopdf)                    size: 12875 bytes
 (epstopdf)             Command: <repstopdf --outfile=EPS/A/bw_a2-eps-converted-
 to.pdf EPS/A/bw_a2.eps>
-(epstopdf)             \includegraphics on input line 141.
+(epstopdf)             \includegraphics on input line 146.
 Package epstopdf Info: Output file is already uptodate.
 
-<EPS/A/bw_a2-eps-converted-to.pdf, id=13, 642.4pt x 481.8pt>
+<EPS/A/bw_a2-eps-converted-to.pdf, id=16, 642.4pt x 481.8pt>
 File: EPS/A/bw_a2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use EPS/A/bw_a2-eps-converted-to.pdf>
 Package pdftex.def Info: EPS/A/bw_a2-eps-converted-to.pdf used on input line 14
-1.
+6.
 (pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
 Package epstopdf Info: Source file: <EPS/A/loss_a2.eps>
 (epstopdf)                    date: 2016-05-01 00:36:14
@@ -415,15 +512,15 @@ Package epstopdf Info: Source file: <EPS/A/loss_a2.eps>
 (epstopdf)                    size: 14305 bytes
 (epstopdf)             Command: <repstopdf --outfile=EPS/A/loss_a2-eps-converte
 d-to.pdf EPS/A/loss_a2.eps>
-(epstopdf)             \includegraphics on input line 149.
+(epstopdf)             \includegraphics on input line 154.
 Package epstopdf Info: Output file is already uptodate.
 
-<EPS/A/loss_a2-eps-converted-to.pdf, id=14, 642.4pt x 481.8pt>
+<EPS/A/loss_a2-eps-converted-to.pdf, id=17, 642.4pt x 481.8pt>
 File: EPS/A/loss_a2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use EPS/A/loss_a2-eps-converted-to.pdf>
 Package pdftex.def Info: EPS/A/loss_a2-eps-converted-to.pdf used on input line 
-149.
+154.
 (pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
 Package epstopdf Info: Source file: <EPS/A/bw_a2_red.eps>
 (epstopdf)                    date: 2016-05-01 00:36:14
@@ -433,15 +530,15 @@ Package epstopdf Info: Source file: <EPS/A/bw_a2_red.eps>
 (epstopdf)                    size: 13918 bytes
 (epstopdf)             Command: <repstopdf --outfile=EPS/A/bw_a2_red-eps-conver
 ted-to.pdf EPS/A/bw_a2_red.eps>
-(epstopdf)             \includegraphics on input line 158.
+(epstopdf)             \includegraphics on input line 163.
 Package epstopdf Info: Output file is already uptodate.
 
-<EPS/A/bw_a2_red-eps-converted-to.pdf, id=15, 642.4pt x 481.8pt>
+<EPS/A/bw_a2_red-eps-converted-to.pdf, id=18, 642.4pt x 481.8pt>
 File: EPS/A/bw_a2_red-eps-converted-to.pdf Graphic file (type pdf)
 
 <use EPS/A/bw_a2_red-eps-converted-to.pdf>
 Package pdftex.def Info: EPS/A/bw_a2_red-eps-converted-to.pdf used on input lin
-e 158.
+e 163.
 (pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
 Package epstopdf Info: Source file: <EPS/A/loss_a2_red.eps>
 (epstopdf)                    date: 2016-05-01 00:36:14
@@ -451,15 +548,15 @@ Package epstopdf Info: Source file: <EPS/A/loss_a2_red.eps>
 (epstopdf)                    size: 16104 bytes
 (epstopdf)             Command: <repstopdf --outfile=EPS/A/loss_a2_red-eps-conv
 erted-to.pdf EPS/A/loss_a2_red.eps>
-(epstopdf)             \includegraphics on input line 166.
+(epstopdf)             \includegraphics on input line 171.
 Package epstopdf Info: Output file is already uptodate.
 
-<EPS/A/loss_a2_red-eps-converted-to.pdf, id=16, 642.4pt x 481.8pt>
+<EPS/A/loss_a2_red-eps-converted-to.pdf, id=19, 642.4pt x 481.8pt>
 File: EPS/A/loss_a2_red-eps-converted-to.pdf Graphic file (type pdf)
 
 <use EPS/A/loss_a2_red-eps-converted-to.pdf>
 Package pdftex.def Info: EPS/A/loss_a2_red-eps-converted-to.pdf used on input l
-ine 166.
+ine 171.
 (pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
 Package epstopdf Info: Source file: <EPS/A/bw_a3.eps>
 (epstopdf)                    date: 2016-04-30 19:09:05
@@ -469,20 +566,20 @@ Package epstopdf Info: Source file: <EPS/A/bw_a3.eps>
 (epstopdf)                    size: 12883 bytes
 (epstopdf)             Command: <repstopdf --outfile=EPS/A/bw_a3-eps-converted-
 to.pdf EPS/A/bw_a3.eps>
-(epstopdf)             \includegraphics on input line 176.
+(epstopdf)             \includegraphics on input line 181.
 Package epstopdf Info: Output file is already uptodate.
 
-<EPS/A/bw_a3-eps-converted-to.pdf, id=17, 642.4pt x 481.8pt>
+<EPS/A/bw_a3-eps-converted-to.pdf, id=20, 642.4pt x 481.8pt>
 File: EPS/A/bw_a3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use EPS/A/bw_a3-eps-converted-to.pdf>
-Package pdftex.def Info: EPS/A/bw_a3-eps-converted-to.pdf used on input line 17
-6.
+Package pdftex.def Info: EPS/A/bw_a3-eps-converted-to.pdf used on input line 18
+1.
 (pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [2 <./EPS/A/bw_a2-eps-converted-to.pdf> <./EPS/A/loss_a2-eps-converted-to.pdf>
+ [3 <./EPS/A/bw_a2-eps-converted-to.pdf> <./EPS/A/loss_a2-eps-converted-to.pdf>
  <./EPS/A/bw_a2_red-eps-converted-to.pdf> <./EPS/A/loss_a2_red-eps-converted-to
 .pdf>]
 Package epstopdf Info: Source file: <EPS/A/loss_a3.eps>
@@ -493,80 +590,100 @@ Package epstopdf Info: Source file: <EPS/A/loss_a3.eps>
 (epstopdf)                    size: 14383 bytes
 (epstopdf)             Command: <repstopdf --outfile=EPS/A/loss_a3-eps-converte
 d-to.pdf EPS/A/loss_a3.eps>
-(epstopdf)             \includegraphics on input line 185.
+(epstopdf)             \includegraphics on input line 189.
 Package epstopdf Info: Output file is already uptodate.
 
-<EPS/A/loss_a3-eps-converted-to.pdf, id=69, 642.4pt x 481.8pt>
+<EPS/A/loss_a3-eps-converted-to.pdf, id=72, 642.4pt x 481.8pt>
 File: EPS/A/loss_a3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use EPS/A/loss_a3-eps-converted-to.pdf>
 Package pdftex.def Info: EPS/A/loss_a3-eps-converted-to.pdf used on input line 
-185.
+189.
 (pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
-
-Runaway argument?
-{\protect \numberline {\csname the\@captype \endcsname }{\ignorespaces \ETC.
-./main.tex:188: Paragraph ended before \addcontentsline was complete.
-<to be read again> 
-                   \par 
-l.188 the others}
-                 \label{graph:loss_a3}
-? 
-./main.tex:188: Extra }, or forgotten \endgroup.
-\@tempf ...me the#1\endcsname }{\ignorespaces #2}}
-                                                  \begingroup \@parboxrestor...
-l.188 the others}
-                 \label{graph:loss_a3}
-? 
-./main.tex:189: Extra }, or forgotten \endgroup.
-\@endfloatbox ...pagefalse \outer@nobreak \egroup 
-                                                  \color@endbox 
-l.189     \end{figure}
-                      
-? 
 Package epstopdf Info: Source file: <EPS/B/bw_b1.eps>
 (epstopdf)                    date: 2016-05-02 13:01:28
 (epstopdf)                    size: 111922 bytes
 (epstopdf)             Output file: <EPS/B/bw_b1-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-05-02 13:02:09
+(epstopdf)                    size: 14265 bytes
 (epstopdf)             Command: <repstopdf --outfile=EPS/B/bw_b1-eps-converted-
 to.pdf EPS/B/bw_b1.eps>
-(epstopdf)             \includegraphics on input line 207.
-runsystem(repstopdf --outfile=EPS/B/bw_b1-eps-converted-to.pdf EPS/B/bw_b1.eps)
-...executed safely (allowed).
+(epstopdf)             \includegraphics on input line 209.
+Package epstopdf Info: Output file is already uptodate.
 
-Package epstopdf Info: Result file: <EPS/B/bw_b1-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-05-02 13:02:09
-(epstopdf)                    size: 14265 bytes.
-<EPS/B/bw_b1-eps-converted-to.pdf, id=70, 642.4pt x 481.8pt>
+<EPS/B/bw_b1-eps-converted-to.pdf, id=73, 642.4pt x 481.8pt>
 File: EPS/B/bw_b1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use EPS/B/bw_b1-eps-converted-to.pdf>
 Package pdftex.def Info: EPS/B/bw_b1-eps-converted-to.pdf used on input line 20
-7.
+9.
 (pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
 Package epstopdf Info: Source file: <EPS/B/loss_b1.eps>
 (epstopdf)                    date: 2016-05-02 13:00:44
 (epstopdf)                    size: 120555 bytes
 (epstopdf)             Output file: <EPS/B/loss_b1-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-05-02 13:02:09
+(epstopdf)                    size: 15986 bytes
 (epstopdf)             Command: <repstopdf --outfile=EPS/B/loss_b1-eps-converte
 d-to.pdf EPS/B/loss_b1.eps>
-(epstopdf)             \includegraphics on input line 215.
-runsystem(repstopdf --outfile=EPS/B/loss_b1-eps-converted-to.pdf EPS/B/loss_b1.
-eps)...executed safely (allowed).
+(epstopdf)             \includegraphics on input line 217.
+Package epstopdf Info: Output file is already uptodate.
 
-Package epstopdf Info: Result file: <EPS/B/loss_b1-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-05-02 13:02:09
-(epstopdf)                    size: 15986 bytes.
-
-<EPS/B/loss_b1-eps-converted-to.pdf, id=71, 642.4pt x 481.8pt>
+<EPS/B/loss_b1-eps-converted-to.pdf, id=74, 642.4pt x 481.8pt>
 File: EPS/B/loss_b1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use EPS/B/loss_b1-eps-converted-to.pdf>
 Package pdftex.def Info: EPS/B/loss_b1-eps-converted-to.pdf used on input line 
-215.
+217.
 (pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
- [3 <./EPS/A/bw_a3-eps-converted-to.pdf> <./EPS/A/loss_a3-eps-converted-to.pdf>
- <./EPS/B/bw_b1-eps-converted-to.pdf> <./EPS/B/loss_b1-eps-converted-to.pdf>]
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 231.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8.03> on input line 231.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.62097> on input line 231.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <4.015> on input line 231.
+LaTeX Font Info:    Calculating math sizes for size <5.01874> on input line 233
+.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <2.50937> not available
+(Font)              size <5> substituted on input line 233.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <2.50937> not available
+(Font)              size <5> substituted on input line 233.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <2.50937> not available
+(Font)              size <5> substituted on input line 233.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <3.51309> on input line 233.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <2.50937> on input line 233.
+[4 <./EPS/A/bw_a3-eps-converted-to.pdf> <./EPS/A/loss_a3-eps-converted-to.pdf> 
+<./EPS/B/bw_b1-eps-converted-to.pdf> <./EPS/B/loss_b1-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <EPS/B/loss_sent_percentage_b1.eps>
+(epstopdf)                    date: 2016-05-02 18:09:46
+(epstopdf)                    size: 129809 bytes
+(epstopdf)             Output file: <EPS/B/loss_sent_percentage_b1-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2016-05-02 18:14:52
+(epstopdf)                    size: 17483 bytes
+(epstopdf)             Command: <repstopdf --outfile=EPS/B/loss_sent_percentage
+_b1-eps-converted-to.pdf EPS/B/loss_sent_percentage_b1.eps>
+(epstopdf)             \includegraphics on input line 247.
+Package epstopdf Info: Output file is already uptodate.
+
+<EPS/B/loss_sent_percentage_b1-eps-converted-to.pdf, id=126, 642.4pt x 481.8pt>
+File: EPS/B/loss_sent_percentage_b1-eps-converted-to.pdf Graphic file (type pdf
+)
+<use EPS/B/loss_sent_percentage_b1-eps-converted-to.pdf>
+Package pdftex.def Info: EPS/B/loss_sent_percentage_b1-eps-converted-to.pdf use
+d on input line 247.
+(pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
+ [5 <./EPS/B/loss_sent_percentage_b1-eps-converted-to.pdf>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -578,32 +695,39 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[4] (./main.aux)
+[6
+
+] (./main.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 2.49063pt have occurred.
+
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 4904 strings out of 493089
- 75409 string characters out of 6134842
- 150788 words of memory out of 5000000
- 8325 multiletter control sequences out of 15000+600000
- 37343 words of font info for 67 fonts, out of 8000000 for 9000
+ 4952 strings out of 493089
+ 76266 string characters out of 6134842
+ 154793 words of memory out of 5000000
+ 8363 multiletter control sequences out of 15000+600000
+ 41968 words of font info for 76 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 42i,7n,32p,410b,691s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,11n,32p,431b,691s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/tex
 live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texliv
 e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
-/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-
-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2015/texmf-dist/font
-s/type1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/ur
-w/times/utmri8a.pfb>
-Output written on main.pdf (4 pages, 494681 bytes).
+/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/201
+5/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/
+type1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/
+times/utmri8a.pfb>
+Output written on main.pdf (6 pages, 519803 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
- 107 compressed objects within 2 object streams
+ 180 PDF objects out of 1000 (max. 8388607)
+ 124 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

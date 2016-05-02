@@ -124,8 +124,18 @@ loss_0_8 = link_0_8 ( :, 2);
 loss_1_6 = link_1_6 ( :, 2); 
 loss_1_7 = link_1_7 ( :, 2); 
 loss_2_6 = link_2_6 ( :, 2); 
+loss_6_2 = link_6_2 ( :, 2); 
 loss_7_1 = link_7_1 ( :, 2); 
 loss_8_0 = link_8_0 ( :, 2);
+
+total_loss_0_8 = sum( loss_0_8 )
+total_loss_1_6 = sum( loss_1_6 )
+total_loss_1_7 = sum( loss_1_7 )
+total_loss_2_6 = sum( loss_2_6 )
+total_loss_6_2 = sum( loss_6_2 )
+total_loss_7_1 = sum( loss_7_1 )
+total_loss_8_0 = sum( loss_8_0 )
+
 
 colorf = [0 0 0];
 
@@ -159,7 +169,7 @@ set(l,'FontSize',12);
 ylabel('# of packets lost');
 
 xlabel('Time in sec.');
-t = title({'Packet loss evolution by flow and aggregated','on a simple FIFO queuing system'},'interpreter','latex')
+t = title({'Packet loss evolution by flow and aggregated','on a simple FIFO queuing system'},'interpreter','latex');
 
 set(t,'FontSize',30);
 set(gca,'fontsize',12);
