@@ -130,7 +130,7 @@ This exploratory essay focus on developing a comparative study of traffic contro
      \end{itemize}
 
      \section{A - Simulating the "Best-Effort" scenario}
-
+\label{besteffort}
      By default, routers handle packets based on a simple FIFO queueing system, trying to forward them in
      the best possible way according to the available resources (memory and CPU). \par This well-known model is called Best-Effort as there are \textbfno QoS guarantees} on packet delivery (in terms of bounded delays, loss
          and/or bandwidth utilisation). \par 
@@ -250,12 +250,21 @@ This exploratory essay focus on developing a comparative study of traffic contro
      \end{figure}
 
 
-     As stated before, it is in flows 2 $ \rightarrow $ 6 ( 30 VOIP connections over UDP ) and 6 $ \rightarrow $ 2 ( 30 VOIP connections over UDP ) that we observe a bigger loss percentage over time (5\%). The service that should be prioritized and treated as the most volatile to delays is the one suffering the most from congestion. 
+     As stated before, it is in flows 2 $ \rightarrow $ 6 ( 30 VOIP connections over UDP ) and 6 $ \rightarrow $ 2 ( 30 VOIP connections over UDP ) that we observe a bigger loss percentage over time (5\%). The service that should be prioritised and treated as the most volatile to delays (real time traffic necessity) is the one suffering the most from congestion. 
 
+\section{Simulating Differentiated Services :: protecting vulnerable packets}
+\label{diffserv}
+In some flows, the loss of some segments has more impact than others on the perfomance of the service/application -- as FTP (over TCP) and VOIP (over UDP). We call the packets from these services, our vulnerable packets in our simulation scenario. By "marking" these segments/packets with a higher priority and implementing the priority using a diffserv architecture, the overall perfomance and QoS considerably improves. \par 
+For a first approach we considered similar clients with CBR applications,  generating each one a rate of 3Mbps, for a total of six flows (0 $ \rightarrow $ 8, 1 $ \rightarrow $ 7, 2 $ \rightarrow $ 6, 8 $ \rightarrow $0, 7 $ \rightarrow $1,    6 $ \rightarrow $2).\par 
+We considered the simple network topology defined in figure \ref{fig:network}, and before any further change we analysed the links under congestion, and identified the queue which suffers higher packetloss.\par 
 
-     \section{C.1 Identify the links under congestion}
+     \subsection{Identification of the queueing management parameters for an Edge $\rightarrow$  Core Configuration and an Core $\rightarrow$  Edge Configuration}
+     
+     The presented parameters for an Edge $\rightarrow$  Core Configuration and an Core $\rightarrow$  Edge Configuration, were not chosen to necessarily obtain an optimal initial performance, but rather to create conditions that allow us to study the effect of diffserv on diminishing the loss probabilities of vulnerable flows, and the impact of the further changes versus this initial simple configuration.\par 
+     
+     Consider this simulation scenario and its initial traffic model as a base comparison model for the "best-effort" model presented in section \ref{besteffort} on page \pageref{besteffort}.
 
-     \subsection{E1 - C0 (Edge to Core Configuration)}
+     \subsubsection{E1 - C0 (Edge $\rightarrow$ Core Configuration)}
      \begin{itemize}
      \item \textbf{The number of existing queues and the traffic scheduler in use} \par 
      1 physical queue,  implementing 2 virtual queues;  
@@ -305,10 +314,7 @@ This exploratory essay focus on developing a comparative study of traffic contro
      \end{itemize}
 
 
-
-
-
-     \subsection{C0 - E2 (Core to Edge Configuration)}
+     \subsubsection{C0 - E2 (Core $\rightarrow$ Edge Configuration)}
 
 
      \begin{itemize}
@@ -345,8 +351,99 @@ This exploratory essay focus on developing a comparative study of traffic contro
 
      \end{itemize}
 
+   \subsection{Identification of the queue which suffers higher packet loss}
 
+Taking into account the simulation results/statistics, presented on tables \ref{table:e1_c0_5s} to \ref{table:c0_e2_15s}, we can identify the queue which suffers higher packet loss -- physical queue 0 and virtual queue 1, from E1 to C0 (Edge $\rightarrow$ Core Configuration). This behaviour is easily explained since every traffic with initial station that is not Client1, and end station that is not Client6, is always downgrade to code point 11 (yellow tag). In congestion, these are the first packets to be dropped (wether late dropped or early dropped).
+\subsubsection{Statistics for time = 5s}
+.
+\begin{table}[H]
+     \caption{Statistics for the queue from E1 to C0 (Edge $\rightarrow$ Core Configuration) }
+     \label{table:e1_c0_5s}
+     \centering
+     \begin{tabular}{ | L{1cm} | R{1.0cm} | R{1.0cm} | R {1.0  cm} | R {1.0  cm} |}
+     \hline  CP & TotPkts &  TxPkts  & ldrops &  edrops \\ \hline \hline
+     
+    All   &  5619   &  3136    & 2097  &    386 \\ \hline
+ 10   &  1252 &    1252    &    0  &      0\\ \hline
+ 11    & 4367    & 1884  &   2097   &   386\\ \hline
+     \end{tabular}
+     \end{table}
 
+\begin{table}[H]
+     \caption{Statistics for the queue from C0 to E2 (Core $\rightarrow$  Edge Configuration) }
+     \label{table:c0_e2_5s}
+     \centering
+     \begin{tabular}{ | L{1cm} | R{1.0cm} | R{1.0cm} | R {1.0  cm} | R {1.0  cm} |}
+     \hline  CP & TotPkts &  TxPkts  & ldrops &  edrops \\ \hline \hline
+    All   &  3111   &  3111    & 0  &    0 \\ \hline
+ 10   &  1242 &    1242    &    0  &      0\\ \hline
+ 11    & 1869    & 1869  &   0   &   0\\ \hline
+     \end{tabular}
+     \end{table}
+     
+ 
+ 
+ \subsubsection{Statistics for time = 10s}
+.
+\begin{table}[H]
+     \caption{Statistics for the queue from E1 to C0 (Edge $\rightarrow$ Core Configuration) }
+     \label{table:e1_c0_10s}
+     \centering
+     \begin{tabular}{ | L{1cm} | R{1.0cm} | R{1.0cm} | R {1.0  cm} | R {1.0  cm} |}
+     \hline  CP & TotPkts &  TxPkts  & ldrops &  edrops \\ \hline \hline
+     
+    All   &  11244   &  6261    & 4197  &    786 \\ \hline
+ 10   &  2502 &    2502    &    0  &      0\\ \hline
+ 11    & 8742    & 3759  &   4197   &   786\\ \hline
+     \end{tabular}
+     \end{table}
+
+\begin{table}[H]
+     \caption{Statistics for the queue from C0 to E2 (Core $\rightarrow$  Edge Configuration) }
+     \label{table:c0_e2_10s}
+     \centering
+     \begin{tabular}{ | L{1cm} | R{1.0cm} | R{1.0cm} | R {1.0  cm} | R {1.0  cm} |}
+     \hline  CP & TotPkts &  TxPkts  & ldrops &  edrops \\ \hline \hline
+    All   &  6236   &  6236    & 0  &    0 \\ \hline
+ 10   &  2492 &    2492    &    0  &      0\\ \hline
+ 11    & 3744    & 3744  &   0   &   0\\ \hline
+     \end{tabular}
+     \end{table}
+     
+ 
+
+ \subsubsection{Statistics for time = 15s}
+.
+
+\begin{table}[H]
+     \caption{Statistics for the queue from E1 to C0 (Edge $\rightarrow$ Core Configuration) }
+     \label{table:e1_c0_15s}
+     \centering
+     \begin{tabular}{ | L{1cm} | R{1.0cm} | R{1.0cm} | R {1.0  cm} | R {1.0  cm} |}
+     \hline  CP & TotPkts &  TxPkts  & ldrops &  edrops \\ \hline \hline
+     
+    All   &  16869   &  9386    & 6298  &    1185 \\ \hline
+ 10   &  3752 &    3752    &    0  &      0\\ \hline
+ 11    & 13117    & 5634  &   6298   &   1185\\ \hline
+     \end{tabular}
+     \end{table}
+ 
+ 
+\begin{table}[H]
+     \caption{Statistics for the queue from C0 to E2 (Core $\rightarrow$  Edge Configuration) }
+     \label{table:c0_e2_15s}
+     \centering
+     \begin{tabular}{ | L{1cm} | R{1.0cm} | R{1.0cm} | R {1.0  cm} | R {1.0  cm} |}
+     \hline  CP & TotPkts &  TxPkts  & ldrops &  edrops \\ \hline \hline
+    All   &  9361   &  9361    & 0  &    0 \\ \hline
+ 10   &  3742 &    3742    &    0  &      0\\ \hline
+ 11    & 5619    & 5619  &   0   &   0\\ \hline
+     \end{tabular}
+     \end{table}
+     
+\subsection{A visual interpretation of the packet loss and bandwidth utilisation along the time}
+
+Given the simulation scenario and the initial traffic model presented on section \ref{diffserv} on page \pageref{diffserv}, 
 
      \end{document}
 

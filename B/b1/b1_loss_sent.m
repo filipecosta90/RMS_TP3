@@ -222,7 +222,6 @@ loss_6_2 = link_6_2 ( :, 2);
 loss_7_1 = link_7_1 ( :, 2); 
 loss_8_0 = link_8_0 ( :, 2);
 
-
 loss_sent_0_8 = loss_0_8 ./ sent_0_8(1:15,:) * 100;
 loss_sent_1_6 = loss_1_6 ./ sent_1_6(1:15,:) * 100;
 loss_sent_1_7 = loss_1_7 ./ sent_1_7(1:14,:) * 100;
@@ -232,7 +231,6 @@ loss_sent_7_1 = loss_7_1 ./ sent_7_1(1:15,:) * 100;
 loss_sent_8_0 = loss_8_0 ./ sent_8_0(1:15,:) * 100;
 
 colorf = [0 0 0];
-
 
 FigHandle = figure;
 set(FigHandle, 'Position', [0, 0, 640, 480]);
