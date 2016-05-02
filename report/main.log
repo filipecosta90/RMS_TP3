@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.2.16)  2 MAY 2016 19:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.2.16)  2 MAY 2016 19:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -608,15 +608,15 @@ Package epstopdf Info: Source file: <EPS/B/bw_b1.eps>
 (epstopdf)                    size: 14265 bytes
 (epstopdf)             Command: <repstopdf --outfile=EPS/B/bw_b1-eps-converted-
 to.pdf EPS/B/bw_b1.eps>
-(epstopdf)             \includegraphics on input line 209.
+(epstopdf)             \includegraphics on input line 210.
 Package epstopdf Info: Output file is already uptodate.
 
 <EPS/B/bw_b1-eps-converted-to.pdf, id=73, 642.4pt x 481.8pt>
 File: EPS/B/bw_b1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use EPS/B/bw_b1-eps-converted-to.pdf>
-Package pdftex.def Info: EPS/B/bw_b1-eps-converted-to.pdf used on input line 20
-9.
+Package pdftex.def Info: EPS/B/bw_b1-eps-converted-to.pdf used on input line 21
+0.
 (pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
 Package epstopdf Info: Source file: <EPS/B/loss_b1.eps>
 (epstopdf)                    date: 2016-05-02 13:00:44
@@ -626,7 +626,7 @@ Package epstopdf Info: Source file: <EPS/B/loss_b1.eps>
 (epstopdf)                    size: 15986 bytes
 (epstopdf)             Command: <repstopdf --outfile=EPS/B/loss_b1-eps-converte
 d-to.pdf EPS/B/loss_b1.eps>
-(epstopdf)             \includegraphics on input line 217.
+(epstopdf)             \includegraphics on input line 218.
 Package epstopdf Info: Output file is already uptodate.
 
 <EPS/B/loss_b1-eps-converted-to.pdf, id=74, 642.4pt x 481.8pt>
@@ -634,34 +634,34 @@ File: EPS/B/loss_b1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use EPS/B/loss_b1-eps-converted-to.pdf>
 Package pdftex.def Info: EPS/B/loss_b1-eps-converted-to.pdf used on input line 
-217.
+218.
 (pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 231.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 232.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8.03> on input line 231.
+(Font)              <8.03> on input line 232.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.62097> on input line 231.
+(Font)              <5.62097> on input line 232.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <4.015> on input line 231.
-LaTeX Font Info:    Calculating math sizes for size <5.01874> on input line 233
+(Font)              <4.015> on input line 232.
+LaTeX Font Info:    Calculating math sizes for size <5.01874> on input line 234
 .
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <2.50937> not available
-(Font)              size <5> substituted on input line 233.
+(Font)              size <5> substituted on input line 234.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <2.50937> not available
-(Font)              size <5> substituted on input line 233.
+(Font)              size <5> substituted on input line 234.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <2.50937> not available
-(Font)              size <5> substituted on input line 233.
+(Font)              size <5> substituted on input line 234.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <3.51309> on input line 233.
+(Font)              <3.51309> on input line 234.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <2.50937> on input line 233.
+(Font)              <2.50937> on input line 234.
 [4 <./EPS/A/bw_a3-eps-converted-to.pdf> <./EPS/A/loss_a3-eps-converted-to.pdf> 
 <./EPS/B/bw_b1-eps-converted-to.pdf> <./EPS/B/loss_b1-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <EPS/B/loss_sent_percentage_b1.eps>
@@ -673,7 +673,7 @@ d-to.pdf>
 (epstopdf)                    size: 17483 bytes
 (epstopdf)             Command: <repstopdf --outfile=EPS/B/loss_sent_percentage
 _b1-eps-converted-to.pdf EPS/B/loss_sent_percentage_b1.eps>
-(epstopdf)             \includegraphics on input line 247.
+(epstopdf)             \includegraphics on input line 248.
 Package epstopdf Info: Output file is already uptodate.
 
 <EPS/B/loss_sent_percentage_b1-eps-converted-to.pdf, id=126, 642.4pt x 481.8pt>
@@ -681,17 +681,91 @@ File: EPS/B/loss_sent_percentage_b1-eps-converted-to.pdf Graphic file (type pdf
 )
 <use EPS/B/loss_sent_percentage_b1-eps-converted-to.pdf>
 Package pdftex.def Info: EPS/B/loss_sent_percentage_b1-eps-converted-to.pdf use
-d on input line 247.
+d on input line 248.
 (pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
 LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 26
+3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <11.04124> on input line 263.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7.72884> on input line 263.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.52061> on input line 263.
+ [5 <./EPS/B/loss_sent_percentage_b1-eps-converted-to.pdf>] [6]
+Package epstopdf Info: Source file: <EPS/C/bw_c3.eps>
+(epstopdf)                    date: 2016-04-30 19:01:09
+(epstopdf)                    size: 200716 bytes
+(epstopdf)             Output file: <EPS/C/bw_c3-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-05-02 19:17:25
+(epstopdf)                    size: 19208 bytes
+(epstopdf)             Command: <repstopdf --outfile=EPS/C/bw_c3-eps-converted-
+to.pdf EPS/C/bw_c3.eps>
+(epstopdf)             \includegraphics on input line 452.
+Package epstopdf Info: Output file is already uptodate.
+
+<EPS/C/bw_c3-eps-converted-to.pdf, id=150, 642.4pt x 481.8pt>
+File: EPS/C/bw_c3-eps-converted-to.pdf Graphic file (type pdf)
+
+<use EPS/C/bw_c3-eps-converted-to.pdf>
+Package pdftex.def Info: EPS/C/bw_c3-eps-converted-to.pdf used on input line 45
 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11.04124> on input line 262.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.72884> on input line 262.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.52061> on input line 262.
- [5 <./EPS/B/loss_sent_percentage_b1-eps-converted-to.pdf>]
+(pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
+Package epstopdf Info: Source file: <EPS/C/loss_c3.eps>
+(epstopdf)                    date: 2016-04-30 18:59:42
+(epstopdf)                    size: 211458 bytes
+(epstopdf)             Output file: <EPS/C/loss_c3-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-05-02 19:17:26
+(epstopdf)                    size: 21322 bytes
+(epstopdf)             Command: <repstopdf --outfile=EPS/C/loss_c3-eps-converte
+d-to.pdf EPS/C/loss_c3.eps>
+(epstopdf)             \includegraphics on input line 460.
+Package epstopdf Info: Output file is already uptodate.
+
+<EPS/C/loss_c3-eps-converted-to.pdf, id=151, 642.4pt x 481.8pt>
+File: EPS/C/loss_c3-eps-converted-to.pdf Graphic file (type pdf)
+
+<use EPS/C/loss_c3-eps-converted-to.pdf>
+Package pdftex.def Info: EPS/C/loss_c3-eps-converted-to.pdf used on input line 
+460.
+(pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
+Package epstopdf Info: Source file: <EPS/C/bw_c4.eps>
+(epstopdf)                    date: 2016-04-30 18:48:08
+(epstopdf)                    size: 209753 bytes
+(epstopdf)             Output file: <EPS/C/bw_c4-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-05-02 19:32:45
+(epstopdf)                    size: 19922 bytes
+(epstopdf)             Command: <repstopdf --outfile=EPS/C/bw_c4-eps-converted-
+to.pdf EPS/C/bw_c4.eps>
+(epstopdf)             \includegraphics on input line 473.
+Package epstopdf Info: Output file is already uptodate.
+
+<EPS/C/bw_c4-eps-converted-to.pdf, id=152, 642.4pt x 481.8pt>
+File: EPS/C/bw_c4-eps-converted-to.pdf Graphic file (type pdf)
+
+<use EPS/C/bw_c4-eps-converted-to.pdf>
+Package pdftex.def Info: EPS/C/bw_c4-eps-converted-to.pdf used on input line 47
+3.
+(pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
+Package epstopdf Info: Source file: <EPS/C/loss_c4.eps>
+(epstopdf)                    date: 2016-04-30 18:50:58
+(epstopdf)                    size: 220257 bytes
+(epstopdf)             Output file: <EPS/C/loss_c4-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-05-02 19:32:46
+(epstopdf)                    size: 22034 bytes
+(epstopdf)             Command: <repstopdf --outfile=EPS/C/loss_c4-eps-converte
+d-to.pdf EPS/C/loss_c4.eps>
+(epstopdf)             \includegraphics on input line 481.
+Package epstopdf Info: Output file is already uptodate.
+
+<EPS/C/loss_c4-eps-converted-to.pdf, id=153, 642.4pt x 481.8pt>
+File: EPS/C/loss_c4-eps-converted-to.pdf Graphic file (type pdf)
+
+<use EPS/C/loss_c4-eps-converted-to.pdf>
+Package pdftex.def Info: EPS/C/loss_c4-eps-converted-to.pdf used on input line 
+481.
+(pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
+ [7 <./EPS/C/bw_c3-eps-converted-to.pdf> <./EPS/C/loss_c3-eps-converted-to.pdf>
+ <./EPS/C/bw_c4-eps-converted-to.pdf> <./EPS/C/loss_c4-eps-converted-to.pdf>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -703,7 +777,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6] [7
+[8
 
 ] (./main.aux)
 
@@ -715,10 +789,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 4976 strings out of 493089
- 76692 string characters out of 6134842
- 164857 words of memory out of 5000000
- 8387 multiletter control sequences out of 15000+600000
+ 5002 strings out of 493089
+ 77412 string characters out of 6134842
+ 164901 words of memory out of 5000000
+ 8408 multiletter control sequences out of 15000+600000
  42884 words of font info for 79 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  42i,11n,32p,587b,691s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -733,10 +807,10 @@ texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist
 /fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
 pe1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/ti
 mes/utmri8a.pfb>
-Output written on main.pdf (7 pages, 531224 bytes).
+Output written on main.pdf (8 pages, 594925 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 131 compressed objects within 2 object streams
+ 272 PDF objects out of 1000 (max. 8388607)
+ 189 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

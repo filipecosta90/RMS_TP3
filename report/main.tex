@@ -192,6 +192,7 @@ This exploratory essay focus on developing a comparative study of traffic contro
 
 
      \section{B - Simulating a multi-service network in  the "Best-Effort" scenario}
+\label{multiservice}
 
 
      In a more realistic scenario, it would be expectable to have both UDP and TCP traffic with other characteristics (FTP, HTTP, etc.).
@@ -443,7 +444,47 @@ Taking into account the simulation results/statistics, presented on tables \ref{
      
 \subsection{A visual interpretation of the packet loss and bandwidth utilisation along the time}
 
-Given the simulation scenario and the initial traffic model presented on section \ref{diffserv} on page \pageref{diffserv}, 
+Given the simulation scenario and the initial traffic model presented on section \ref{diffserv} on page \pageref{diffserv}, the corresponding results illustration the levels of loss and bandwidth utilisation along time are show in figures \ref{graph:bw_c3} and \ref{graph:loss_c3}.
+
+  \begin{figure}[H]
+     \centering
+     \includegraphics[width=1\columnwidth]{EPS/C/bw_c3.eps}
+     \caption{Bandwidth analysis by flow and aggregated on a simple FIFO queueing system, using Random Early Detection Gateways for congestion avoidance.}
+     \label{graph:bw_c3}
+     \end{figure}
+
+
+     \begin{figure}[H]
+     \centering
+     \includegraphics[width=1\columnwidth]{EPS/C/loss_c3.eps}
+     \caption{Packet loss evolution by flow and aggregated on a simple FIFO queueing system, using Random Early Detection Gateways for congestion avoidance.}
+     \label{graph:loss_c3}
+     \end{figure}
+
+When comparing the simulation results to the "best-effort" scenario we conclude that, despite the "final solution" being unacceptable, every flow obtains some quota of the available total bandwidth. We can observe that we also achieved a better packet loss maximum for all the simulation flows (approximately 250 vs 400 for the "best-effort" scenario). We have achived differentiated services for th
+e same type of traffic, based on the initial station and end station of every traffic. \par
+Given that, the next step is to assume that traffic from all clients is marked as belonging to the same class of service, and verify if the option for a single traffic class bring any added value to network QoS when compared with the best-effort scenario. 
+The corresponding results are shown in figures \ref{graph:bw_c4} and \ref{graph:loss_c4}.
+
+
+\begin{figure}[H]
+     \centering
+     \includegraphics[width=1\columnwidth]{EPS/C/bw_c4.eps}
+     \caption{Bandwidth analysis by flow and aggregated on a simple FIFO queueing system, using Random Early Detection Gateways for congestion avoidance.}
+     \label{graph:bw_c4}
+     \end{figure}
+
+
+     \begin{figure}[H]
+     \centering
+     \includegraphics[width=1\columnwidth]{EPS/C/loss_c4.eps}
+     \caption{Packet loss evolution by flow and aggregated on a simple FIFO queueing system, using Random Early Detection Gateways for congestion avoidance.}
+     \label{graph:loss_c4}
+     \end{figure}
+
+     Notice that this "solution" only improves the equitable bandwidth distribution across flow because they all are produced with the same service/traffic type, and, when compared to the "best-effort" scenario with Random Early Detection for Congestion Avoidance, the only improvement is the possibility of limiting the bandwidth percentage to be used, since we can "become" harsher to the yellow tagged traffic increasing its maximum dropping probability to 1, and therefore dropping every traffic out the Committed Information Rate limit. \par
+     But the problem of the multi-services in the network maintains. In this simple simulation scenario there is only the possibility of tagging traffic to be "in-bounds" or "out-of-bounds". If we added both UDP and TCP traffic with other characteristics, the problems identified in section \ref{multiservice} would still be observed.
+     
 
      \end{document}
 
