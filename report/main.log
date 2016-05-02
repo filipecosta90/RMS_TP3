@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.2.16)  2 MAY 2016 12:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.2.16)  2 MAY 2016 13:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -524,7 +524,49 @@ l.188 the others}
 l.189     \end{figure}
                       
 ? 
-[3 <./EPS/A/bw_a3-eps-converted-to.pdf> <./EPS/A/loss_a3-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <EPS/B/bw_b1.eps>
+(epstopdf)                    date: 2016-05-02 13:01:28
+(epstopdf)                    size: 111922 bytes
+(epstopdf)             Output file: <EPS/B/bw_b1-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=EPS/B/bw_b1-eps-converted-
+to.pdf EPS/B/bw_b1.eps>
+(epstopdf)             \includegraphics on input line 207.
+runsystem(repstopdf --outfile=EPS/B/bw_b1-eps-converted-to.pdf EPS/B/bw_b1.eps)
+...executed safely (allowed).
+
+Package epstopdf Info: Result file: <EPS/B/bw_b1-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-05-02 13:02:09
+(epstopdf)                    size: 14265 bytes.
+<EPS/B/bw_b1-eps-converted-to.pdf, id=70, 642.4pt x 481.8pt>
+File: EPS/B/bw_b1-eps-converted-to.pdf Graphic file (type pdf)
+
+<use EPS/B/bw_b1-eps-converted-to.pdf>
+Package pdftex.def Info: EPS/B/bw_b1-eps-converted-to.pdf used on input line 20
+7.
+(pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
+Package epstopdf Info: Source file: <EPS/B/loss_b1.eps>
+(epstopdf)                    date: 2016-05-02 13:00:44
+(epstopdf)                    size: 120555 bytes
+(epstopdf)             Output file: <EPS/B/loss_b1-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=EPS/B/loss_b1-eps-converte
+d-to.pdf EPS/B/loss_b1.eps>
+(epstopdf)             \includegraphics on input line 215.
+runsystem(repstopdf --outfile=EPS/B/loss_b1-eps-converted-to.pdf EPS/B/loss_b1.
+eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <EPS/B/loss_b1-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-05-02 13:02:09
+(epstopdf)                    size: 15986 bytes.
+
+<EPS/B/loss_b1-eps-converted-to.pdf, id=71, 642.4pt x 481.8pt>
+File: EPS/B/loss_b1-eps-converted-to.pdf Graphic file (type pdf)
+
+<use EPS/B/loss_b1-eps-converted-to.pdf>
+Package pdftex.def Info: EPS/B/loss_b1-eps-converted-to.pdf used on input line 
+215.
+(pdftex.def)             Requested size: 243.91125pt x 182.9315pt.
+ [3 <./EPS/A/bw_a3-eps-converted-to.pdf> <./EPS/A/loss_a3-eps-converted-to.pdf>
+ <./EPS/B/bw_b1-eps-converted-to.pdf> <./EPS/B/loss_b1-eps-converted-to.pdf>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -536,24 +578,19 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[4
-
-] (./main.aux)
+[4] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 4891 strings out of 493089
- 75052 string characters out of 6134842
- 148770 words of memory out of 5000000
- 8315 multiletter control sequences out of 15000+600000
+ 4904 strings out of 493089
+ 75409 string characters out of 6134842
+ 150788 words of memory out of 5000000
+ 8325 multiletter control sequences out of 15000+600000
  37343 words of font info for 67 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 42i,7n,32p,386b,691s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,7n,32p,410b,691s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/tex
 live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texliv
@@ -563,10 +600,10 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2015/texmf-dist/font
 s/type1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/ur
 w/times/utmri8a.pfb>
-Output written on main.pdf (4 pages, 471661 bytes).
+Output written on main.pdf (4 pages, 494681 bytes).
 PDF statistics:
- 129 PDF objects out of 1000 (max. 8388607)
- 89 compressed objects within 1 object stream
+ 156 PDF objects out of 1000 (max. 8388607)
+ 107 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -150,7 +150,7 @@ ylim([0 max(loss_full*1.50)]);
 
 
 
-l = legend('full loss','flow 0 -> 8 #packet loss ( 3Mbps CBR App ) :: Client 1 to Client 6', 'flow 1 -> 6 #packet loss ( FTP connection ) :: Client 2 to Client 4',  'flow 1 -> 7 #packet loss ( FTP connection ) :: Client 2 to Client 5' , 'flow 2 -> 6 #packet loss ( 30 VOIP connections over UDP ) :: Client 3 to Client 4', 'flow 6 -> 2 #packet loss ( 30 VOIP connections over UDP ) :: Client 4 to Client 3',  'flow 7 -> 1 #packet loss ( FTP connection ) :: Client 5 to Client 2', 'flow 8 -> 0 #packet loss ( 3Mbps CBR App ) :: Client 6 to Client 1');
+l = legend('full loss','flow 0 -> 8 #packet loss ( 4Mbps CBR App ) :: Client 1 to Client 6', 'flow 1 -> 6 #packet loss ( FTP connection ) :: Client 2 to Client 4',  'flow 1 -> 7 #packet loss ( FTP connection ) :: Client 2 to Client 5' , 'flow 2 -> 6 #packet loss ( 30 VOIP connections over UDP ) :: Client 3 to Client 4', 'flow 6 -> 2 #packet loss ( 30 VOIP connections over UDP ) :: Client 4 to Client 3',  'flow 7 -> 1 #packet loss ( FTP connection ) :: Client 5 to Client 2', 'flow 8 -> 0 #packet loss ( 4Mbps CBR App ) :: Client 6 to Client 1');
 
 
 

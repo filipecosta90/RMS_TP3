@@ -174,7 +174,7 @@ the others, on a simple FIFO queuing system, simulating a "best effort" scenario
   \begin{figure}[H]
     \centering
     \includegraphics[width=1\columnwidth]{EPS/A/bw_a3.eps}
-    \caption{Bandwidth analysis by flow and aggregated on a simple FIFO queueing system, simulation a "best effort" scenario,  in which one client would generate more CBR traffic than the others, on a simple FIFO queuing system, simulating a "best effort" scenario.
+    \caption{Bandwidth analysis by flow and aggregated on a simple FIFO queueing system, simulation a "best effort" scenario,  in which one client would generate more CBR traffic than the others.
 the others}
     \label{graph:bw_a3}
     \end{figure}
@@ -183,12 +183,35 @@ the others}
     \begin{figure}[H]
     \centering
     \includegraphics[width=1\columnwidth]{EPS/A/loss_a3.eps}
-    \caption{Packet loss evolution by flow and aggregated on a simple FIFO queueing system, simulation a "best effort" scenario,  in which one client would generate more CBR traffic than the others, on a simple FIFO queuing system, simulating a "best effort" scenario.
+    \caption{Packet loss evolution by flow and aggregated on a simple FIFO queueing system, simulation a "best effort" scenario,  in which one client would generate more CBR traffic than the others.
     
 the others}\label{graph:loss_a3}
     \end{figure}
     
     
+     \section{B - Simulating a multi-service network in  the "Best-Effort" scenario}
+
+
+In a more realistic scenario, it would be expectable to have both UDP and TCP traffic with other characteristics (FTP, HTTP, etc.).Using the procedures already included in the simulation script, several changes were made in order to obtain thefollowing scenario:
+\begin{itemize}\item \textbf{a CBR application} sending 4Mbps from client 1 to client 6, and other from client 6 to client 1;\item  \textbf{a FTP connection} from client 2 to client 5, and other from client 4 to client 2;\item  \textbf{a voice connection over UDP} from client 3 to client 4, and vice-versa. Since VOIP Bandwidth consumption naturally depends on the codec used, we selected G.711 - 64 Kbps Bitrate and 87.2 Kbps Nominal Ethernet Bandwidth, and simulated a maximum of 30 calls at any given simulation time. The presented graphic results for VOIP are a aggregation of all the 30calls. 
+\end{itemize}
+The corresponding results are shown in figures \ref{graph:bw_b1} and \ref{graph:loss_b11}.
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\columnwidth]{EPS/B/bw_b1.eps}
+    \caption{Bandwidth analysis by flow and aggregated on a simple FIFO queueing system, simulating a multi-service network in a "best effort" scenario,  on a simple FIFO queuing system.}
+    \label{graph:bw_b1}
+    \end{figure}
+    
+    
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\columnwidth]{EPS/B/loss_b1.eps}
+    \caption{Packet loss evolution by flow and aggregated on a simple FIFO queueing system, simulating a multi-service network in a "best effort" scenario,  on a simple FIFO queuing system.}
+\label{graph:loss_b11}
+    \end{figure}
+
     
     \section{C.1 Identify the links under congestion}
     
@@ -241,6 +264,10 @@ the others}\label{graph:loss_a3}
         
     \end{itemize}
     
+    
+
+
+
     \subsection{C0 - E2 (Core to Edge Configuration)}
     
     
