@@ -232,6 +232,8 @@ loss_sent_8_0 = loss_8_0 ./ sent_8_0(1:15,:) * 100;
 
 colorf = [0 0 0];
 
+
+
 FigHandle = figure;
 set(FigHandle, 'Position', [0, 0, 640, 480]);
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.2.16)  2 MAY 2016 21:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.2.16)  2 MAY 2016 21:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -757,6 +757,24 @@ Underfull \vbox (badness 1331) has occurred while \output is active []
 
  [10 <./EPS/C/bw_c5_e1-eps-converted-to.pdf> <./EPS/C/bw_c5_e2-eps-converted-to
 .pdf> <./EPS/C/loss_c5-eps-converted-to.pdf>]
+(/usr/local/texlive/2015/texmf-dist/tex/latex/ucs/data/uni-32.def
+File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
+)
+
+./main.tex:971: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.971 \\T
+         he ns Manual [Online]. Available:\\
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 977--978
+
+ []
+
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -768,9 +786,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[11
-
-] (./main.aux)
+[11] (./main.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.49063pt have occurred.
@@ -778,12 +794,15 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 5026 strings out of 493089
- 78085 string characters out of 6134842
- 190999 words of memory out of 5000000
- 8429 multiletter control sequences out of 15000+600000
+ 5285 strings out of 493089
+ 81025 string characters out of 6134842
+ 191008 words of memory out of 5000000
+ 8685 multiletter control sequences out of 15000+600000
  42884 words of font info for 79 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  42i,11n,32p,798b,691s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -798,7 +817,7 @@ texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist
 /fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
 pe1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/ti
 mes/utmri8a.pfb>
-Output written on main.pdf (11 pages, 659165 bytes).
+Output written on main.pdf (11 pages, 660865 bytes).
 PDF statistics:
  330 PDF objects out of 1000 (max. 8388607)
  228 compressed objects within 3 object streams
