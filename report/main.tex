@@ -257,7 +257,8 @@ This exploratory essay focus on developing a comparative study of traffic contro
 \label{diffserv}
 In some flows, the loss of some segments has more impact than others on the perfomance of the service/application -- as FTP (over TCP) and VOIP (over UDP). We call the packets from these services, our vulnerable packets in our simulation scenario. By "marking" these segments/packets with a higher priority and implementing the priority using a diffserv architecture, the overall perfomance and QoS considerably improves. \par 
 For a first approach we considered similar clients with CBR applications,  generating each one a rate of 3Mbps, for a total of six flows (0 $ \rightarrow $ 8, 1 $ \rightarrow $ 7, 2 $ \rightarrow $ 6, 8 $ \rightarrow $0, 7 $ \rightarrow $1,    6 $ \rightarrow $2).\par 
-We considered the simple network topology defined in figure \ref{fig:network}, and before any further change we analysed the links under congestion, and identified the queue which suffers higher packetloss.\par 
+We considered the simple network topology defined in figure \ref{fig:network}, and before any further change we analysed the links under congestion, and identified the queue which suffers higher packet
+loss.\par 
 
      \subsection{Identification of the queueing management parameters for an Edge $\rightarrow$  Core Configuration and an Core $\rightarrow$  Edge Configuration}
      
